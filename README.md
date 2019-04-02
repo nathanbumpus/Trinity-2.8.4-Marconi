@@ -12,6 +12,8 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 Syntax highlighted code block
 
 # De Novo Transcriptome Assembly Using Trinity 2.8.4 on Marconi
+This project focussed on the use of Trinity software on Marconi in developing de novotranscriptome assemblies.  RNA seq data for yeast, lobster, and shrimp were used to develop a general workflow.  The lobster and shrimp data sets are publicly available from NCBI and ENA.Instructions for downloading the yeast data set can be found in the original trinity paper from 2013 in Nature. Below is a schematic of the general developed workflow for generating de novo transcriptome assemblies.
+
 ## Header 2
 ### Header 3
 
