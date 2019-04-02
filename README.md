@@ -2,8 +2,8 @@
 # De Novo Transcriptome Assembly Using Trinity 2.8.4 on Marconi
 This project focussed on the use of Trinity software on Marconi in developing de novotranscriptome assemblies.  RNA seq data for yeast, lobster, and shrimp were used to develop a general workflow.  The lobster and shrimp data sets are publicly available from NCBI and ENA.Instructions for downloading the yeast data set can be found in the original trinity paper from 2013 in Nature. Below is a schematic of the general developed workflow for generating de novo transcriptome assemblies.
 
-![Workflow](/_images/trinity_flow.jpg)
-Format: ![Alt Text](url)
+![Workflow](trinity.jpg)
+
 
 ## Welcome to GitHub Pages
 
