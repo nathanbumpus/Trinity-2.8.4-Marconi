@@ -11,7 +11,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
-# Header 1
+# De Novo Transcriptome Assembly Using Trinity 2.8.4 on Marconi
 ## Header 2
 ### Header 3
 
