@@ -1,8 +1,13 @@
 <h1 align="center">How do I download data from NCBI or ENA</h1>
+
 <p>If you do not already have data from an experiment NCBI and ENA have raw RNA seq data publicly available for download.</p>
+
 <h2 align="center">Downloading data from the NCBI SRA database with the SRA Toolkit</h2>
+
 <p>The easiest way to obtain data from the NCBI SRA database is to use the SRA Toolkit.  The Toolkit can be downloaded from <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software" target="_blank">SRA Toolkit Download</a> and then sftp to Marconi.</p>
+
 <p>Once the packaged is unzipped we can use prefecth to obtain experimental data sets in SRA format.  I will use the shrimp data as an example</p>
+
 ```
 #!/bin/bash -l
 #PBS -q haswell
@@ -41,4 +46,13 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341162.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341161.sra
 ```
-<p>Repeat these steps for the SRA lobster data or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a>
+<p>Repeat these steps for the SRA lobster data or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a></p>
+
+<h2 align="center">Table of Contents</h2>
+* [Home](README.md)
+* [Obtaining Data](data.md)
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
