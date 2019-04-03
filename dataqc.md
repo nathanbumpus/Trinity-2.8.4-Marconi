@@ -109,7 +109,16 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341163_2.trim.paired.fastq | perl -la
 cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -lane 's/_reverse//; print;' > /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 
 ```
-<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.</p>
+<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity.</p>
 
+
+<h2 align="center">Table of Contents</h2>
+* [Home](README.md)
+* [Obtaining Data](data.md)
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
 
 
