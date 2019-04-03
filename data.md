@@ -22,7 +22,7 @@ module load java
 ./prefetch.2.9.4 -v SRR4341161
 
 ```
-<p>Since this is not a high memory job we will run this on haswell cluster.  The bio cluster should be reserved for jobs requiring high memory such as building the assembly.  This will output four SRA files into the ~/ncbi/public/sra/ directory.  We can then use the following script to split the sra file into forward and reverse strands.</p>
+<p>Since this is not a high memory job we will run this on haswell cluster.  The bio cluster should be reserved for jobs requiring high memory such as building the assembly.  This will output four SRA files into the ~/ncbi/public/sra/ directory. Next make a project directory called "shrimp" and inside that directory make a directory "raw_reads" using the mkdir command.  We can then use the following script to split the sra file into forward and reverse strands and output the resulting fastq files designated with a _1 for the left reads and a _2 for the right reads in the raw_reads directory.</p>
 ```
 #!/bin/bash -l
 #PBS -q haswell
@@ -41,4 +41,17 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341162.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341161.sra
 ```
-
+<p>If we use the head command on one of the fastq files we will see something like this</p>
+```
+forward/1 'redcarpet'
+@D1317JN1:268:C5A93ACXX:5:1101:1986:1957_forward/1
+GTCGATATACTTACTTACACCTGCGCAGGTATGTTTATTGCATATGCAGCAGGCCCATGCGCACAAATNAATGTNATATTTTTTTTCAAACTATANANTNT
++SRR4341164.1 D1317JN1:268:C5A93ACXX:5:1101:1986:1957 length=101
+@=@D?DD>>DHAHHIGI><CCEF3CFFFH;?D3:BGGEIDE><DGGEFHIICGHH;@@F>@B4=B(;?#,5;==#(,88<C>:>9<>>3:@>A########
+@D1317JN1:268:C5A93ACXX:5:1101:1911:1995_forward/1
+ATCAGCTTATCCATAAACGGTGGTAAGTGGAGTTCTGAAAGGGTAGCTAGCAGTGTATGTTGTTGGGTAATGGAAAGGAAGATTCTGGTAAGTGTATGTTG
++SRR4341164.2 D1317JN1:268:C5A93ACXX:5:1101:1911:1995 length=101
+?@@DDD?DHGFFFCHGGG7DC;C@BBHCHHAE:C4?DFGD<DH0BGHGHIJGIFH4B@GE4BFGHIB;E>?C;:;?BBDFEB:>6(53-5;;5>@C:@BA>
+@D1317JN1:268:C5A93ACXX:5:1101:1777:1998_forward/1
+CCTTGCAAGAACGCCCCTCTCAAGTCTCTGACCACATTCAAATTTTCGTTCGGTCTGAACAATACTTGTGGTTCGAATTGGCACTTCAAAAACCCTTACTG
+```
