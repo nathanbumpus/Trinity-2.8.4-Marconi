@@ -6,7 +6,7 @@
 
 <p>The easiest way to obtain data from the NCBI SRA database is to use the SRA Toolkit.  The Toolkit can be downloaded from <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software" target="_blank">SRA Toolkit Download</a> and then sftp to Marconi.</p>
 
-<p>Once the packaged is unzipped we can use prefecth to obtain experimental data sets in SRA format.  I will use the shrimp data as an example</p>
+<p>Once the packaged is unzipped we can use prefetch to obtain experimental data sets in SRA format.  I will use the shrimp data as an example</p>
 
 ```
 #!/bin/bash -l
