@@ -6,6 +6,15 @@ This project focussed on the use of Trinity software on Marconi in developing de
   <img src="trinity.jpg" alt="Workflow"> 
 </p>
 <h2 align="center">Table of Contents</h2>
+* [Obtaining Data](https://github.com/nathanbumpus.nathanbumpus.github.io/data.md)
+* [Data Quality](https://github.com/nathanbumpus.nathanbumpus.github.io/dataqc.md)
+* [Building an Assembly](https://github.com/nathanbumpus.nathanbumpus.github.io/assembly.md)
+* [Abundance Estimation](https://github.com/nathanbumpus.nathanbumpus.github.io/abundances.md)
+* [Assembly QC](https://github.com/nathanbumpus.nathanbumpus.github.io/assemblyqc.md)
+* [Differential Expression](https://github.com/nathanbumpus.nathanbumpus.github.io/DE.md)
+
+
+
 
 ## Welcome to GitHub Pages
 
