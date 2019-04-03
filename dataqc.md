@@ -6,7 +6,7 @@
 
 <p>Use the following script to run fastqc on the shrimp data set.  The script can be easily modified to run with the lobster and yeast data sets.</p>
 
----
+```
 #!/bin/bash -l
 #PBS -q haswell
 #PBS -N fastqc
@@ -29,7 +29,7 @@ fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw
 fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw_reads/SRR4341161_1.fastq
 fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw_reads/SRR4341161_2.fastq
 
----
+```
 
 <p>This script along with most of the others that follow it takes advantage of #PBS_O_WORKDIR variable which takes the value of the directory from which the script is called.</p>
 
