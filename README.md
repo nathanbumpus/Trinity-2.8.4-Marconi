@@ -7,11 +7,12 @@ This project focussed on the use of Trinity software on Marconi in developing de
 </p>
 <h2 align="center">Table of Contents</h2>
 * [Obtaining Data](data.md)
-* <a href="https://github.com/nathanbumpus/nathanbumpus.io/dataqc.md">Data Quality</a>
-* <a href="https://github.com/nathanbumpus/nathanbumpus.io/assembly.md">Building and Assembly</a>
-<a href="https://github.com/nathanbumpus/nathanbumpus.io/abundances.md">Abundance Estimation</a>
-<a href="https://github.com/nathanbumpus/nathanbumpus.io/asemblyqc.md">Assembly Quality</a>
-<a href="https://github.com/nathanbumpus/nathanbumpus.io/DE.md">Differential Expression</a>
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
+
 
 
 
