@@ -6,8 +6,7 @@ This project focussed on the use of Trinity software on Marconi in developing de
   <img src="trinity.jpg" alt="Workflow"> 
 </p>
 <h2 align="center">Table of Contents</h2>
-http://github.com - automatic!
-[GitHub](http://github.com)
+<a href="https://github.com/nathanbumpus/nathanbumpus.io/data.md">Obtaining Data></a>
 
 
 
