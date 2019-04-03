@@ -46,7 +46,7 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341162.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341161.sra
 ```
-<p>Repeat these steps for the SRA lobster data or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a></p>
+<p>Repeat these steps for the SRA lobster data or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a>.  Once we have our data we can move on to cleaning up the data before building the assembly [Data Quality](dataqc.md).</p>
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
