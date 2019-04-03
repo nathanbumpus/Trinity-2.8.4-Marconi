@@ -5,7 +5,7 @@ This project focussed on the use of Trinity software on Marconi in developing de
 <p align="center">
   <img src="trinity.jpg" alt="Workflow"> 
 </p>
-<h2 align="center>Table of Contents</h2>
+<h2 align="center">Table of Contents</h2>
 
 ## Welcome to GitHub Pages
 
