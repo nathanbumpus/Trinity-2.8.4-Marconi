@@ -41,17 +41,4 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341162.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341161.sra
 ```
-<p>If we use the head command on one of the fastq files we will see something like this</p>
-```
-forward/1 'redcarpet'
-@D1317JN1:268:C5A93ACXX:5:1101:1986:1957_forward/1
-GTCGATATACTTACTTACACCTGCGCAGGTATGTTTATTGCATATGCAGCAGGCCCATGCGCACAAATNAATGTNATATTTTTTTTCAAACTATANANTNT
-+SRR4341164.1 D1317JN1:268:C5A93ACXX:5:1101:1986:1957 length=101
-@=@D?DD>>DHAHHIGI><CCEF3CFFFH;?D3:BGGEIDE><DGGEFHIICGHH;@@F>@B4=B(;?#,5;==#(,88<C>:>9<>>3:@>A########
-@D1317JN1:268:C5A93ACXX:5:1101:1911:1995_forward/1
-ATCAGCTTATCCATAAACGGTGGTAAGTGGAGTTCTGAAAGGGTAGCTAGCAGTGTATGTTGTTGGGTAATGGAAAGGAAGATTCTGGTAAGTGTATGTTG
-+SRR4341164.2 D1317JN1:268:C5A93ACXX:5:1101:1911:1995 length=101
-?@@DDD?DHGFFFCHGGG7DC;C@BBHCHHAE:C4?DFGD<DH0BGHGHIJGIFH4B@GE4BFGHIB;E>?C;:;?BBDFEB:>6(53-5;;5>@C:@BA>
-@D1317JN1:268:C5A93ACXX:5:1101:1777:1998_forward/1
-CCTTGCAAGAACGCCCCTCTCAAGTCTCTGACCACATTCAAATTTTCGTTCGGTCTGAACAATACTTGTGGTTCGAATTGGCACTTCAAAAACCCTTACTG
-```
+<p>Repeat these steps for the SRA lobster data or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a>
