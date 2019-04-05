@@ -1,4 +1,4 @@
-<hi>Building a Trinity Assembly on Marconi</h1>
+<h1>Building a Trinity Assembly on Marconi</h1>
 
 <p>Now that we have a quality sets of data for the yeast, lobster and shrimp we can build a trinity assembly for each but first we need to know how the cDNA library was constructed.  Often the literature that supplied the data will tell us this as was the case for the yeast and lobster, but sometimes this information is omitted as was the case with the shrimp data.  When the latter occurs there are a few things we can do.  First, we can take a sub set of our reads and align them back to a reference genome of a similar organism.  Then view the alignments in IGV by viewing as pairs and coloring alignments by first-of-pair-strand.  Secondly, we could build the assembly, align the reads back to the assembly and then view in IGV.  Finally, we can use the Ex90N50 statistics to determine strand specificity and cDNA library type.  I will demonstrate this in the Assembly Quality section.  But for now let's build an assembly.</p>
 
