@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Evaluation of Assembly Quality</h1>
 
-<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">verifying strand specificity</a> (if not already done), building a blastable database and blasting the assemblies and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
+<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), building a blastable database and blasting the assemblies and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
 
 <h2 align="center">Generation of the N50 statistic</h2>
 
@@ -135,6 +135,54 @@ samtools view -@4 -Sb \
 <p>This file tells us that ~93% of the reads from this sample aligned concordantly at least one time.  Bowtie2 then took the ~7% of the reads that did not align concordantly and tried to align them discordantly.  Bowtie2 was able to align ~17 percent of these reads discordantly.  Bowtie2 then attempted to align the remaining unaligned reads to the assembly as singletons and was successful with about 61% of these reads.  This gives an overall alignment rate of ~98%.  The mapping shown is an example of a sucessful alignment showing greater than 70% of the reads aligning concordantly and a high overall alignment rate greater than 80%. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
 <h2 align="center">Determining Strand Specificity<a id="specificity"></a></h2>
+
+<p>Usually a paper will tell you how the cDNA library was constructed and you can deduce strand specificity.  Such is the case with the lobster and yeast papers.  Sometimes, however, this information is not provided in the literature.  In the case of the shrimp paper we are not provided with the method as to how the library was constructed.  There are two things we can do in this scenario.  We can pick a genome of a closely related species and visualize the mappings of the reads back to that genome using IGV.  The other option is to build the assembly in the manner that we think the library was probably constructed, examine the specificity violin plots and then use IGV to visualize the mappings to the assembly.  Since we have already constructed an assembly for the shrimp data let's pursue the second option.  First run the following trinity script.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N shrimp-str-spec
+#PBS -l nodes=1:ppn=10
+#PBS -l walltime=12:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load samtools
+
+$TRINITY_HOME/util/misc/run_bowtie2.pl \
+--target /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta \
+--left /home/nbumpus/shrimp/trinity_reads/reads.all.left.fastq \
+--right /home/nbumpus/shrimp/trinity_reads/reads.all.right.fastq \
+--CPU 10 \
+| samtools view -@10 -Sb - \
+| samtools sort -@10 - -o /home/nbumpus/shrimp/assembly_quality/specificity.bowtie2.coordSorted.bam
+```
+<p>We want to use all of the combined reads for this script to produce a coordinate sorted bam file for the second script.  The CPUS can be piped to samtools and should match the ppn Torque settings.  Next, run the following script to examine strand specificity</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N shr-vio-plt-spec
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=10:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/util/misc/examine_strand_specificity.pl \
+/home/nbumpus/shrimp/assembly_quality/specificity.bowtie2.coordSorted.bam \
+/home/nbumpus/shrimp/assembly_quality/pooled
+```
+<p>We should get a pooled.dat table containing a diff_ratio for each of the transcripts and a pdf containing violin plots depicting this graph.  The pdf can be sftp'd to your computer and viewed.  For the shrimp data we should get a plot similar to this.</p>
+
+
 
 
 
