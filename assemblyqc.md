@@ -66,7 +66,7 @@ Stats based on ALL transcript contigs:
 ```
 <p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.</p>
 
-<h2 align="center"><a id="align"></a>Realigning the Reads Back to the Assembly</h2><a href="#top">back to top</a>
+<h2 align="center"><a id="align"></a>Realigning the Reads Back to the Assembly<a href="#top">back to top</a></h2>
 
 <p>To map the reads back to the assembly we can use Bowtie2/2.3.4.3 on Marconi.  First build a Bowtie2 index.</p>
 
