@@ -39,3 +39,49 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 --output_dir /home/nbumpus/shrimp/abundances/
 --thread_count 8
 ```
+<p>The current version of Salmon on Marconi is 0.12.0 which requires us to add the --validateMappings argument which we can do through the --salmon_add_opts argument.  --validateMappings is on by default versions of Salmon following 0.12.0.  We can dictate resources to be used by the --thread_count argument making sure that the --thread_count value is the same as the ppn in the Torque settings.</p>
+
+<p>Once the abundances have been estimated we can generate counts and expression matrices by running the followin script.  First we should create a txt file containing the paths to all of the quant.sf files generated during abundance estimation.  This file does not need to be tab dilimited and is simply a list.  Use nano to create a quant_files.txt file in the shrimp project directory like so.</p>
+
+```
+/home/nbumpus/shrimp/abundances/larvae1/quant.sf
+/home/nbumpus/shrimp/abundances/larvae2/quant.sf
+/home/nbumpus/shrimp/abundances/adult3/quant.sf
+/home/nbumpus/shrimp/abundances/adult4/quant.sf
+```
+<p>Before running the trinity abundance__estimates_to_matrix.pl script we should build temporary R libraries.  Once these libraries are installed they will be available whenrever you are logged into Marconi.  In the shrimp project library use the module load command to import R/3.5.2 and then enter the R environment. Install the following temporary libraries using the commands below.  Some of the packages are needed later on during differential expression but now is a good time to install everything we will need</p>
+
+```
+source("http://bioconductor.org/biocLite.R")
+biocLite('edgeR')
+biocLite('ctc')
+biocLite('Biobase')
+install.packages('gplots')
+install.packages('ape')
+```
+
+<p>Exit R and run the following script to generate the matrices.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N matrix
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=01:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
+--est_method salmon \
+--gene_trans_map /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta.gene_trans_map \
+--name_sample_by_basedir \
+--out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
+--quant_files /home/nbumpus/shrimp/quant_files.txt
+```
+
+
