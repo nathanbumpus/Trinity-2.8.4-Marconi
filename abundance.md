@@ -12,9 +12,29 @@ SRR4341162	/home/nbumpus/shrimp/abundances/larvae2 /home/nbumpus/shrimp/trinity_
 SRR4341163	/home/nbumpus/shrimp/abundances/adult3  /home/nbumpus/shrimp/trinity_reads/SRR4341163_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341163_2.trim.paired.adj.fastq
 SRR4341164	/home/nbumpus/shrimp/abundances/adult4  /home/nbumpus/shrimp/trinity_reads/SRR4341164_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fast
 ```
-<p>The first column contains the name of the sample, followed by the output directory for the abundance estimates and finally the left reads followed by the right reads for the sample.</p>
+<p>The first column contains the name of the sample, followed by the output directory for the abundance estimates and finally the left reads followed by the right reads for the sample.  Next prepare the reference like so.</p>
 
-<p>To use Salmon run the following script.</p>
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N referenceprep
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:10:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/align_and_estimate_abundance.pl \
+--transcripts /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta \
+--est_method salmon \
+--gene_trans_map /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta.gene_trans_map \
+--prep_reference
+```
+
+<p>If you have an --SS_lib_type, as is the case with the lobster and yeast data, it should be added to the arguments here.  Next run Salmon with the following script.</p>
 
 ```
 #!/bin/bash -l
@@ -83,5 +103,7 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 --out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
 --quant_files /home/nbumpus/shrimp/quant_files.txt
 ```
+
+<h2 align="center">Alignment Based Abundance Estimation with RSEM</h2>
 
 
