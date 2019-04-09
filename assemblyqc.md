@@ -1,6 +1,6 @@
 <h1 align="center">Evaluation of Assembly Quality</h1>
 
-<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, [realigning the reads back to the assemblies](##realigning-the-reads-back-to-the-assembly), verifying strand specificity (if not already done), building a blastable database and blasting the assemblies and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
+<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="align to assembly">realigning the reads back to the assemblies</a>, verifying strand specificity (if not already done), building a blastable database and blasting the assemblies and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
 
 <h2 align="center">Generation of the N50 statistic</h2>
 
@@ -66,7 +66,7 @@ Stats based on ALL transcript contigs:
 ```
 <p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.</p>
 
-<h2 align="center">Realigning the Reads Back to the Assembly</h2>
+<h2 align="center"><a id="align to assembly"></a>Realigning the Reads Back to the Assembly</h2>
 
 <p>To map the reads back to the assembly we can use Bowtie2/2.3.4.3 on Marconi.  First build a Bowtie2 index.</p>
 
