@@ -1,6 +1,6 @@
 <h1 align="center">Estimating Transcript Abundance with Trinity</h1>
 
-<p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has direct support for the RSEM and Salmon modules on marconi.  If an alignment based method is prefered RSEM should be used.  Salmon should be used for non-alignment based estimation.  Before deciding which method to use go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
+<p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has direct support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundance.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
 
 <h2 align="center">Non-Alignment Based Abundance Estimation with Salmon</h2>
 
@@ -103,7 +103,5 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 --out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
 --quant_files /home/nbumpus/shrimp/quant_files.txt
 ```
-
-<h2 align="center">Alignment Based Abundance Estimation with RSEM</h2>
 
 
