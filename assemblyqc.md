@@ -66,7 +66,7 @@ Stats based on ALL transcript contigs:
 ```
 <p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.</p>
 
-<h2 align="center" style="display:inline"><a id="align"></a>Realigning the Reads Back to the Assembly</h2><p align="center" style="display:inline"><a href="#top">back to top</a></p>
+<h2 align="center">Realigning the Reads Back to the Assembly</h2>
 
 <p>To map the reads back to the assembly we can use Bowtie2/2.3.4.3 on Marconi.  First build a Bowtie2 index.</p>
 
@@ -112,5 +112,27 @@ samtools view -@4 -Sb \
 -o /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.bam
 ```
 <p>This script tell Bowtie2 to use 4 threads and when aligning the fastq files (-q), then suppress SAM records for all unaligned reads and to report up to 20 alignments per read.  The results are written to an align_stats.txt file and piped to samtools to create a bam file.  The thread count from Bowtie2 is also piped to samtools and should be less than or equal to the ppn in the Torque settings.  We then specify that the output file should be .bam.</p>
+
+<p>If we open the align_stats.txt file we will see something like this.</p>
+
+```
+45248026 reads; of these:
+  45248026 (100.00%) were paired; of these:
+    3135976 (6.93%) aligned concordantly 0 times
+    15302515 (33.82%) aligned concordantly exactly 1 time
+    26809535 (59.25%) aligned concordantly >1 times
+    ----
+    3135976 pairs aligned concordantly 0 times; of these:
+      543470 (17.33%) aligned discordantly 1 time
+    ----
+    2592506 pairs aligned 0 times concordantly or discordantly; of these:
+      5185012 mates make up the pairs; of these:
+        2010855 (38.78%) aligned 0 times
+        414129 (7.99%) aligned exactly 1 time
+        2760028 (53.23%) aligned >1 times
+97.78% overall alignment rate
+```
+<p>This file tells us that ~93% of the reads from this sample aligned concordantly at least one time.  Bowtie2 then took the ~7% of the reads that did not align concordantly and tried to align them discordantly.  Bowtie2 was able to align ~17 percent of these reads discordantly.  Bowtie2 then attempted to align the remaining unaligned reads to the assembly as singletons and was successful with about 61% of these reads.  This gives an overall alignment rate of ~98%.  The mapping shown is an example of a sucessful alignment showing greater than 70% of the reads aligning concordantly and a high overall alignment rate greater than 80%. <a id="#top">back to top </a><a id="#contents">table of contents</a></p>
+
 
 
