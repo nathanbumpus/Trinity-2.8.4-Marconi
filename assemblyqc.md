@@ -182,6 +182,10 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
 ```
 <p>We should get a pooled.dat table containing a diff_ratio for each of the transcripts and a pdf containing violin plots depicting this graph.  The pdf can be sftp'd to your computer and viewed.  For the shrimp data we should get a plot similar to this.</p>
 
+<p align="center">
+  <img src="violinplot25.jpg" alt="violin plot"> 
+</p>
+
 
 
 
