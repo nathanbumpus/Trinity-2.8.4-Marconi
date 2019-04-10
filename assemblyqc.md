@@ -271,7 +271,7 @@ blastx \
 -max_target_seqs 1 \
 -outfmt 6
 ```
-<p>This tell blast+ to set a threshold for saving hits at 1e-20, use 16 threads, keep a maximum of one aligned sequence and format the output in tabular format. More options can be seen by loading the blast+ module in the terminal and typing blastx -help</p>
+<p>This tells blast+ to set a threshold for saving hits at 1e-20, use 16 threads, keep a maximum of one aligned sequence and format the output in tabular format. More options can be seen by loading the blast+ module in the terminal and typing blastx -help</p>
 
 <p>Next 
 
