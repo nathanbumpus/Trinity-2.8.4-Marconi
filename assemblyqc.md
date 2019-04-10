@@ -229,7 +229,50 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 
 <h2 align="center">Evaluating the Quality of Transcripts<a id="blast"></a></h2>
 
-<p>When working with a non-model organism one way to evaluate the quality of the transcripts is to see how well the transcripts map back to a database of known proteins.  On Marconi we can use the Blast+ module to perform this task by using any downloadable database that we want.  I will use the uniprot swissprot database to demonstrate this.  First download the current fasta file.  You can get it here <a href="https://www.uniprot.org/downloads#uniprotkblink" target="_blank">uniprot downloads</a> 
+<p>When working with a non-model organism one way to evaluate the quality of the transcripts is to see how well the transcripts map back to a database of known proteins.  On Marconi we can use the Blast+ module to perform this task by using any downloadable database that we want.  I will use the uniprot swissprot database to demonstrate this.  First download the current fasta file.  You can get it here <a href="https://www.uniprot.org/downloads#uniprotkblink" target="_blank">uniprot downloads</a> In your home directory on Marconi make a new directory called databases.  Sftp the downloaded file from your computer to the databases directory on Marconi and unzip the file.  Next run the following script to build the database.</p>
 
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N builddb
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:05:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load blast+
+
+makeblastdb -in /home/nbumpus/databases/uniprot_sprot.fasta \
+-dbtype prot
+```
+<p>Now blast the transcripts against the database like so.</p>
+```
+
+!/bin/bash -l
+#PBS -q bio
+#PBS -N blast-pooled
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=48:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load blast+
+
+blastx \
+-query /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta \
+-db /home/nbumpus/databases/uniprot_sprot.fasta \
+-out /home/nbumpus/shrimp/assembly_quality/pooled.blastx.outfmt6 \
+-evalue 1e-20 \
+-num_threads 16 \
+-max_target_seqs 1 \
+-outfmt 6
+```
+<p>This tell blast+ to set a threshold for saving hits at 1e-20, use 16 threads, keep a maximum of one aligned sequence and format the output in tabular format. More options can be seen by loading the blast+ module in the terminal and typing blastx -help</p>
+
+<p>Next 
 
 
