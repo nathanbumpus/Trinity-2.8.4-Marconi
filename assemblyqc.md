@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Evaluation of Assembly Quality</h1>
 
-<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), building a blastable database and blasting the assemblies and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
+<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), <a href="#blast">building a blastable database and blasting the assemblies</a> and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
 
 <h2 align="center">Generation of the N50 statistic</h2>
 
@@ -226,6 +226,10 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 </p>
 
 <p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.</p>
+
+<h2 align="center">Evaluating the Quality of Transcripts<a id="blast"></a></h2>
+
+<p>When working with a non-model organism one way to evaluate the quality of the transcripts is to see how well the transcripts map back to a database of known proteins.  On Marconi we can use the Blast+ module to perform this task by using any downloadable database that we want.  I will use the uniprot swissprot database to demonstrate this.  First download the current fasta file.  You can get it here <a href="https://www.uniprot.org/downloads#uniprotkblink" id="_blank">uniprot downloads</a> 
 
 
 
