@@ -221,9 +221,11 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 ```
 <p>This script uses samtools to first create the coordinate sorted bam files for all of the reads, then index the coordinate sorted bam files and then index the assembly.  These files can then be sftp'd to your computer and viewed in IGV.  In IGV color the alignments as first-of-pair-strand.  If we pick an area of dense coverage we will see something like the following</p>
 
+<p align="center">
+  <img src="igv50.jpg" alt="igv"> 
+</p>
 
-
-
+<p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.</p>
 
 
 
