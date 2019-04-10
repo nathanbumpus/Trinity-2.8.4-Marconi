@@ -186,6 +186,43 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
   <img src="violinplot25.jpg" alt="violin plot"> 
 </p>
 
+<p>The plot shows that as we approach the 100% of the total reads the median diff_ration is right around 0.0 with a high distribution of the reads centered around that median.  This suggests that the library is non-strand specific.  Results for the lobster and yeast data are shown in the powerpoint slides.  We can now use IGV to back up the assertion that the data is non-strand specific.</p>
+
+<h2 align="center">Determining Strand Specificity With IGV</h2>
+
+<p>We can use IGV to visualize how each set of reads is mapping back to our assembly to help determine strand specificity.  Begin by running the following script.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N total-igv
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=03:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load samtools
+
+samtools sort -@8 /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.bam \
+-o /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.coordsort.bam
+samtools sort -@8 /home/nbumpus/shrimp/assembly_quality/SRR4341162.bowtie2.bam \
+-o /home/nbumpus/shrimp/assembly_quality/SRR4341162.bowtie2.coordsort.bam
+samtools sort -@8 /home/nbumpus/shrimp/assembly_quality/SRR4341163.bowtie2.bam \
+-o /home/nbumpus/shrimp/assembly_quality/SRR4341163.bowtie2.coordsort.bam
+samtools sort -@8 /home/nbumpus/shrimp/assembly_quality/SRR4341164.bowtie2.bam \
+-o /home/nbumpus/shrimp/assembly_quality/SRR4341164.bowtie2.coordsort.bam
+samtools index /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.coordsort.bam
+samtools index /home/nbumpus/shrimp/assembly_quality/SRR4341162.bowtie2.coordsort.bam
+samtools index /home/nbumpus/shrimp/assembly_quality/SRR4341163.bowtie2.coordsort.bam
+samtools index /home/nbumpus/shrimp/assembly_quality/SRR4341164.bowtie2.coordsort.bam
+samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
+```
+<p>This script uses samtools to first create the coordinate sorted bam files for all of the reads, then index the coordinate sorted bam files and then index the assembly.  These files can then be sftp'd to your computer and viewed in IGV.  In IGV color the alignments as first-of-pair-strand.  If we pick an area of dense coverage we will see something like the following</p>
+
+
+
 
 
 
