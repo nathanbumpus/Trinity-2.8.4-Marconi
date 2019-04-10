@@ -229,7 +229,7 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 
 <h2 align="center">Evaluating the Quality of Transcripts<a id="blast"></a></h2>
 
-<p>When working with a non-model organism one way to evaluate the quality of the transcripts is to see how well the transcripts map back to a database of known proteins.  On Marconi we can use the Blast+ module to perform this task by using any downloadable database that we want.  I will use the uniprot swissprot database to demonstrate this.  First download the current fasta file.  You can get it here <a href="https://www.uniprot.org/downloads#uniprotkblink" id="_blank">uniprot downloads</a> 
+<p>When working with a non-model organism one way to evaluate the quality of the transcripts is to see how well the transcripts map back to a database of known proteins.  On Marconi we can use the Blast+ module to perform this task by using any downloadable database that we want.  I will use the uniprot swissprot database to demonstrate this.  First download the current fasta file.  You can get it here <a href="https://www.uniprot.org/downloads#uniprotkblink" target="_blank">uniprot downloads</a> 
 
 
 
