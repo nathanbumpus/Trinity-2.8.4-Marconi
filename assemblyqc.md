@@ -64,7 +64,7 @@ Stats based on ALL transcript contigs:
         Total assembled bases: 108874612
 
 ```
-<p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.</p>
+<p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.<a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
 <h2 align="center">Realigning the Reads Back to the Assembly<a id="align"></a></h2>
 
@@ -225,7 +225,7 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
   <img src="igv50.jpg" alt="igv"> 
 </p>
 
-<p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.</p>
+<p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.<a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
 <h2 align="center">Evaluating the Quality of Transcripts<a id="blast"></a></h2>
 
