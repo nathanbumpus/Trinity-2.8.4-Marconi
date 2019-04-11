@@ -1,6 +1,6 @@
-<h1 align="center">Preparing High Quality Data for Assembly Construction<a id="top"></a></h1>
+<h1 align="center">Preparing<a id="top"></a> High Quality Data for Assembly Construction</h1>
 
-<p>Once we have our data in our raw_reads directory we are ready to evaluate the quality of that data, <a href="#tirm">trim contaminants</a> and prepare the reads for assembly construction.  In the project directory make another directory.  Call it something like "fastqc_reports".  This is where we will put our fastqc files generated from running fastqc.</p>
+<p>Once we have our data in our raw_reads directory we are ready to evaluate the quality of that data, <a href="#trim">trim contaminants</a> and prepare the reads for assembly construction.  In the project directory make another directory.  Call it something like "fastqc_reports".  This is where we will put our fastqc files generated from running fastqc.</p>
 
 <h2 align="center">Running Fastqc on Marconi</h2>
 
@@ -109,7 +109,7 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341163_2.trim.paired.fastq | perl -la
 cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -lane 's/_reverse//; print;' > /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 
 ```
-<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity. <a href="#top">back to top></a></p>
+<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity. <a href="#top">back to top</a></p>
 
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
