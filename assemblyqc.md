@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Evaluation of Assembly Quality</h1>
 
-<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), <a href="#blast">building a blastable database and blasting the assemblies</a> and <a href="#Ex90N50">evaluating the Ex90N50 statistic.</a>  First go to the shrimp project directory and make a new directory called assembly_quality.<a href="#contents">Table of Contents</a></p>
+<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, determining <a href="#specificity">strand specificity</a> (if not already done), <a href="#blast">building a blastable database and blasting the assemblies</a> and <a href="#Ex90N50">evaluating the Ex90N50 statistic.</a>  First go to the shrimp project directory and make a new directory called assembly_quality.<a href="#contents">Table of Contents</a></p>
 
 <h2 align="center">Generation of the N50 statistic</h2>
 
