@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Evaluation of Assembly Quality</h1>
 
-<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), <a href="#blast">building a blastable database and blasting the assemblies</a> and evaluating the Ex90N50 statistic.  First go to the shrimp project directory and make a new directory called assembly_quality.</p>
+<p>Once transcript abundance estimates have been obtained there are a number of tools we can use to determine if our assemblies are acceptable for downstream analysis.  These include the generation of the N50 statistic, <a href="#align">realigning the reads back to the assemblies</a>, <a href="#specificity">determining strand specificity</a> (if not already done), <a href="#blast">building a blastable database and blasting the assemblies</a><a href="#Ex90N50"> and evaluating the Ex90N50 statistic.</a>  First go to the shrimp project directory and make a new directory called assembly_quality.<a href="#contents">Table of Contents</a></p>
 
 <h2 align="center">Generation of the N50 statistic</h2>
 
@@ -273,6 +273,89 @@ blastx \
 ```
 <p>This tells blast+ to set a threshold for saving hits at 1e-20, use 16 threads, keep a maximum of one aligned sequence and format the output in tabular format. More options can be seen by loading the blast+ module in the terminal and typing blastx -help</p>
 
-<p>Next 
+<p>Next run the following script</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N blastcoverage
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:05:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/analyze_blastPlus_topHit_coverage.pl \
+/home/nbumpus/shrimp/assembly_quality/pooled.blastx.outfmt6 \
+/home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta \
+/home/nbumpus/databases/uniprot_sprot.fasta
+```
+
+<p>This will generate the pooled.blastx.outfmt6.hist file and only uses the single best matching transcript from the Trinity.fasta file to produce the graph below describing the percent coverage.  So if more than one transcript matches a database entry only the transcript with the highest percent coverage is counted.</p>
+
+```
+#hit_pct_cov_bin        count_in_bin    >bin_below
+100     3521    3521
+90	1344    4865
+80	873     5738
+70	650     6388
+60	684     7072
+50	691     7763
+40	715     8478
+30	676     9154
+20	620     9774
+10	171     9945
+```
+
+<p>We can see that there are 3521 proteins in the database that are almost completely covered by an assembly transcript by looking at the second column (between 90 and 100 percent coverage). <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+
+<h2 align="center">Evaluating the Ex90N50 Statistic<a id="Ex90N50"></a></h2>
+
+<p>The Ex90N50 statistic is similar to the N50 statistic generated from the trinitystats.pl script but differs in that the Ex90N50 statistic is only representative of the most highly expressed transcripts.  We can use the graph of this statistic to help determine if we have performed deep enough sequencing to create a quality assembly.  Place the following script in the assembly_quality directory and run the script.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N e90n50-pooled
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:10:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd /home/nbumpus/shrimp/assembly_quality/
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/misc/contig_ExN50_statistic.pl \
+/home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.TMM.EXPR.matrix \
+/home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta | \
+tee /home/nbumpus/shrimp/assembly_quality/shrimp.ExN50.stats
+```
+<p>The script will calculate the statistic and output to the shrimp.ExN50.stats file.  When we plot the data we want to start the plotting at around 30% instead of the default 1% to eliminated skewing of the graph by overly expressed transcripts.  Go into the shrimp.ExN50.stats file with nano and delete rows 1-29 and save the new file as shrimp.ExN50.30.stats but leave the header.  Once this is done run the following script to graph the results.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N plote90n50-pooled
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:05:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/util/misc/plot_ExN50_statistic.Rscript \
+/home/nbumpus/shrimp/assembly_quality/shrimp.ExN50.30.stats \
+xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
+```
+
+<p>Sftp the pdf file to your computer to view the graph.  It should look like this.</p>
+
 
 
