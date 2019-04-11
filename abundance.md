@@ -1,4 +1,4 @@
-<h1 align="center">Estimating Transcript Abundance with Trinity</h1>
+<h1 align="center">Estimating Transcript Abundance with Trinity<a id="top"></a></h1>
 
 <p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has direct support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundance.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1" target="_blank">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
 
@@ -61,7 +61,7 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 ```
 <p>The current version of Salmon on Marconi is 0.12.0 which requires us to add the --validateMappings argument which we can do through the --salmon_add_opts argument.  --validateMappings is on by default versions of Salmon following 0.12.0.  We can dictate resources to be used by the --thread_count argument making sure that the --thread_count value is the same as the ppn in the Torque settings.</p>
 
-<p>Once the abundances have been estimated we can generate counts and expression matrices by running the followin script.  First we should create a txt file containing the paths to all of the quant.sf files generated during abundance estimation.  This file does not need to be tab dilimited and is simply a list.  Use nano to create a quant_files.txt file in the shrimp project directory like so.</p>
+<p>Once the abundances have been estimated we should create a txt file containing the paths to all of the resulting quant.sf files. This file does not need to be tab dilimited and is simply a list.  Use nano to create a quant_files.txt file in the shrimp project directory like so.</p>
 
 ```
 /home/nbumpus/shrimp/abundances/larvae1/quant.sf
@@ -69,7 +69,7 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 /home/nbumpus/shrimp/abundances/adult3/quant.sf
 /home/nbumpus/shrimp/abundances/adult4/quant.sf
 ```
-<p>Before running the trinity abundance__estimates_to_matrix.pl script we should build temporary R libraries.  Once these libraries are installed they will be available whenrever you are logged into Marconi.  In the shrimp project library use the module load command to import R/3.5.2 and then enter the R environment. Install the following temporary libraries using the commands below.  Some of the packages are needed later on during differential expression but now is a good time to install everything we will need</p>
+<p>Before running the trinity abundance__estimates_to_matrix.pl script we should build temporary R libraries.  Once these libraries are installed they will be available whenever you are logged into Marconi.  In the shrimp project library use the module load command to import R/3.5.2 and then enter the R environment. Install the following temporary libraries using the commands below.  Some of the packages are needed later on during differential expression but now is a good time to install everything we will need</p>
 
 ```
 source("http://bioconductor.org/biocLite.R")
@@ -103,7 +103,7 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 --out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
 --quant_files /home/nbumpus/shrimp/quant_files.txt
 ```
-<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at overall quality of the assemblies we have built in the next section. <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/assemblyqc.html">Assembly Qualilty</a></p>
+<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at overall quality of the assemblies in the next section. <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/assemblyqc.html">Assembly Qualilty</a></p>
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
