@@ -361,7 +361,7 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
   <img src="ExN50.25.jpg" alt="ExN50 plot"> 
 </p>
 
-<P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A good example of a fragmented assembly that would benefit from deeper sequencing can be seen with the lobster data and is shown in the powerpoint slides. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="DE.md">Differential Expression.</a> <a href="#top">back to top</a></p>
+<P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A good example of a fragmented assembly that would benefit from deeper sequencing can be seen with the lobster data and is shown in the powerpoint slides. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/DE.html">Differential Expression.</a>  <a href="#top">back to top</a></p>
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
