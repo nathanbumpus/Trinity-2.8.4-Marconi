@@ -1,6 +1,6 @@
-<h1 align="center">Preparing High Quality Data for Assembly Construction</h1>
+<h1 align="center">Preparing High Quality Data for Assembly Construction<a id="top"></a></h1>
 
-<p>Once we have our data in our raw_reads directory we are ready to evaluate the quality of that data, trim contaminants and prepare the reads for assembly construction.  In the project directory make another directory.  Call it something like "fastqc_reports".  This is where we will put our fastqc files generated from running fastqc.</p>
+<p>Once we have our data in our raw_reads directory we are ready to evaluate the quality of that data, <a href="#tirm">trim contaminants</a> and prepare the reads for assembly construction.  In the project directory make another directory.  Call it something like "fastqc_reports".  This is where we will put our fastqc files generated from running fastqc.</p>
 
 <h2 align="center">Running Fastqc on Marconi</h2>
 
@@ -33,11 +33,11 @@ fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw
 
 <p>This script along with most of the others that follow it takes advantage of #PBS_O_WORKDIR variable which takes the value of the directory from which the script is called.</p>
 
-<p>When the script finishes, sftp the html files in the fastqc_reports directory to your hard drive.  Once these files have been reviewed create another directory in the project directory.  Call it something like trimmed_reads.  We are now ready to trim the raw RNA seq reads of contamination such as adaptors to obtain high quality data from which to build an assembly.</p>
+<p>When the script finishes, sftp the html files in the fastqc_reports directory to your hard drive.  Once these files have been reviewed create another directory in the project directory.  Call it something like trimmed_reads.  We are now ready to trim the raw RNA seq reads of contamination such as adaptors to obtain high quality data from which to build an assembly. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
-<h2 align="center">Running Trimmomatic on Marconi</h2>
+<h2 align="center">Running Trimmomatic on Marconi<a id="trim"></a></h2>
 
-</p>To run Trimmomatic on Marconi use the following script for each set of the raw RNA seq reads</p>
+<p>To run Trimmomatic on Marconi use the following script for each set of the raw RNA seq reads</p>
 
 ```
 #!/bin/bash -l
@@ -68,7 +68,7 @@ ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30
 
 <p>Any over represented sequences that do not have any data available should be blasted against the NCBI database</p>
 
-<p>If we no perform a head command one of the fastq files in the trimmed_reads directory we should see something like this.</p>
+<p>If we now perform a head command one of the fastq files in the trimmed_reads directory we should see something like this.</p>
 
 ```
 @D1317JN1:268:C5A93ACXX:4:1101:1719:2086_forward/1
@@ -109,10 +109,10 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341163_2.trim.paired.fastq | perl -la
 cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -lane 's/_reverse//; print;' > /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 
 ```
-<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity.</p>
+<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity. <a href="#top">back to top></a></p>
 
 
-<h2 align="center">Table of Contents</h2>
+<h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
 * [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
