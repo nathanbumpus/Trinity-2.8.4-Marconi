@@ -103,7 +103,7 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 --out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
 --quant_files /home/nbumpus/shrimp/quant_files.txt
 ```
-<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at overall quality of the assemblies in the next section. <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/assemblyqc.html">Assembly Qualilty</a></p>
+<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at overall quality of the assemblies in the next section. <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/assemblyqc.html">Assembly Qualilty</a> <a href"#top">back to top</a></p>
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
