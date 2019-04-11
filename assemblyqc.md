@@ -358,7 +358,7 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
 <p>Sftp the pdf file to your computer to view the graph.  It should look like this.</p>
 
 <p align="center">
-  <img src="ExN50.30.jpg" alt="ExN50 plot"> 
+  <img src="ExN50.50.jpg" alt="ExN50 plot"> 
 </p>
 
 <P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A good example of a fragmented assembly that would benefit from deeper sequencing can be seen with the lobster data and is shown in the powerpoint slides.<p>
