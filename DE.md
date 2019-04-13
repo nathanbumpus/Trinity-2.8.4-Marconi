@@ -57,11 +57,13 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <p>Shown below are the heatmaps for the larvae, adult and all combined samples and replicates.</p>
 
-<p display="inline-block">
-  <img src="larvaeheat50.mod.jpg" alt="larvae heatmap">
-  <img src="adultheat50.mod.jpg" alt="adult heatmap">
-  <img src="samplesheat50.mod.jpg" alt="samples heatmap">
-</p>
+<div class="inline-block">
+  <p>
+    <img src="larvaeheat50.mod.jpg" alt="larvae heatmap">
+    <img src="adultheat50.mod.jpg" alt="adult heatmap">
+    <img src="samplesheat50.mod.jpg" alt="samples heatmap">
+  </p>
+</div>
 
 <p>We can also perform a principal components analysis to visualze the variation between samples and replicates.  Perform the principle components analysis by running the following script.</p>
 
