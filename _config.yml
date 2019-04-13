@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+.inline-block {
+  display: inline-block;
+}
