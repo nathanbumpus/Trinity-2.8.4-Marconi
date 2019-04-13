@@ -31,7 +31,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 <p>
   <img src="larvae_counts50.mod.jpg" alt="larvae counts">
   <img src="log2_read_cnt50.mod.jpg" alt="larvae scatter plot">
-  <img src="larvae_MA50.jpg" alt="larvae MA plot">
+  <img src="larvae_MA50.mod.jpg" alt="larvae MA plot">
 </p>
 
 <h2 align="center">Heatmap for Larvae</h2>
