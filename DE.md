@@ -1,6 +1,6 @@
 <h1 align="center">Differential Expression with Trinity on Marconi<a id="top"></a></h1>
 
-<h2 align="center">Comparison of Replicates</h>
+<h2 align="center">Comparison of Replicates</h2>
 
 <p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  In the DifferentialExpression directory run the following script.</p>
 
@@ -25,6 +25,11 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 --compare_replicates
 ```
 <p>This will produce a pdf file containing MA plots, volcano plots and a histogram depicting the comparison of replicates.  Below is shown the results for the larvae replicates.  We should have similar plots for the adult replicates.</p>
+
+<p>
+  <img align="left" src="larvae_counts25.jpg" alt="larvae counts">
+  <img align="right" src="log2_read_cnt25.jpg" alt="log2 read counts">
+</p>
 
 
 
