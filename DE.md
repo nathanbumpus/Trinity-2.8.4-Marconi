@@ -1,3 +1,16 @@
+<style>
+  
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  dispay: table;
+}
+</style>
 <h1 align="center">Differential Expression with Trinity on Marconi<a id="top"></a></h1>
 
 <h2 align="center">Comparison of Replicates</h2>
