@@ -28,7 +28,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <p>
   <img display="block" float="left" src="larvae_counts25.jpg" alt="larvae counts">
-  <img display="block" float="right" src="log2_read_cnt17.jpg" alt="log2 read counts">
+  <img src="log2_read_cnt17.jpg" alt="log2 read counts">
 </p>
 
 
