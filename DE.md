@@ -99,6 +99,14 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <p>This should produce the following plot shown below.</p>
 
+<p align="center">
+  <img src="shrimppc.jpg" alt="principle compoments">
+</p>
+
+<h2 align="center">Calcultating Differential Expression"</h2>
+
+<p>ignore everything below here for now.</p>
+
 
 
 
