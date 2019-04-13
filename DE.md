@@ -33,7 +33,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 
 
-<p>Once we have determined that our assemblies are of high quality we can look at which transcripts are differentially expressed.  Trinity supports the use of edgeR, DESeq2 and limma.  I chose to use edgeR because the yeast and lobster data sets do not contain biological replicates.  In this case edgeR is the only option as we can set a dispersion estimate.  The recommended dispersion estimate is between 0.1 and 0.4 depending on the organism. For the yeast I picked a dispersion value of 0.1 but more can read about dispersion in the edgeR documentation <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf" target="_blank">here.</a> In the case of the shrimp data we have two larvae replicates and two adult replicates.  We need to create a txt file describing these sample to replicate relationships to feed into edgeR.  Use nano to create the following tab delimited samples_described.txt file.</p>
+
 
 ```
 larvae  larvae1
