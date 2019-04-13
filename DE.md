@@ -26,9 +26,28 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 ```
 <p>This will produce a pdf file containing MA plots, volcano plots and a histogram depicting the comparison of replicates.  Below is shown the results for the larvae replicates.  We should have similar plots for the adult replicates.</p>
 
-<p display="block">
-  <img display="block" float="left" src="larvae_counts25.jpg" alt="larvae counts">
-  <img src="log2_read_cnt17.jpg" alt="log2 read counts">
+<h3 align="center">Replicate Counts for Larvae</h3>
+
+<p align="center">
+  <img src="larvae_counts50.jpg" alt="larvae counts">
+</p>
+
+<h3 align="center">Scatter plots for Larvae</h3>
+
+<p align="center">
+  <img src="log2_read_cnt50.jpg" alt="larvae scatter plot">
+</p>
+
+<h3 align="center">MA Plots for Larvae</h3>
+
+<p align="center">
+  <img src="larvae_MA50.jpg" alt="larvae MA plot">
+</p>
+
+<h3 align="center">Heatmap for Larvae</h3>
+
+<p align="center">
+  <img src="larvaeheat50.jpg" alt="larvae heatmap">
 </p>
 
 
