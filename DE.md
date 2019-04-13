@@ -28,14 +28,9 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <h2 align="center">Replicate Counts for Larvae</h2>
 
-<p align="center">
-  <img src="larvae_counts50.jpg" alt="larvae counts">
-</p>
-
-<h2 align="center">Scatter plots for Larvae</h2>
-
-<p align="center">
-  <img src="log2_read_cnt50.jpg" alt="larvae scatter plot">
+<p>
+  <img src="larvae_counts50.mod.jpg" alt="larvae counts">
+  <img src="log2_read_cnt50.mod.jpg" alt="larvae scatter plot">
 </p>
 
 <h2 align="center">MA Plots for Larvae</h2>
