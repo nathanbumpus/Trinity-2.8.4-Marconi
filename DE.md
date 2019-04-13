@@ -79,6 +79,45 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
   <img src="samplesheat50.jpg" alt="samples heatmap">
 </p>
 
+<p>We can also perform a principal components analysis to visualze the variation between samples and replicates.  Perform the principle components analysis by running the following script.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N pc
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:05:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd /home/nbumpus/shrimp/DifferentialExpression/isoform/
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/Analysis/DifferentialExpression/PtR \
+-m /home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.counts.matrix \
+-s /home/nbumpus/shrimp/samples_described.txt \
+--log2 \
+--CPM \
+--prin_comp 2
+```
+
+<p>This should produce the following plot shown below.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
