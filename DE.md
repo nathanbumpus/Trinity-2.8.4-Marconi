@@ -1,5 +1,33 @@
 <h1 align="center">Differential Expression with Trinity on Marconi<a id="top"></a></h1>
 
+<h2 align="center">Comparison of Replicates</h>
+
+<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  In the DifferentialExpression directory run the following script.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N comparereplicates
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:05:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd /home/nbumpus/shrimp/DifferentialExpression/isoform/
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/Analysis/DifferentialExpression/PtR \
+-m /home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.counts.matrix \
+-s /home/nbumpus/shrimp/samples_described.txt \
+--log2 \
+--compare_replicates
+```
+<p>This will produce a pdf file containing MA plots, volcano plots and a histogram depicting the comparison of replicates.  Below is shown the results for the larvae replicates.  We should have similar plots for the adult replicates.</p>
+
+
+
 <p>Once we have determined that our assemblies are of high quality we can look at which transcripts are differentially expressed.  Trinity supports the use of edgeR, DESeq2 and limma.  I chose to use edgeR because the yeast and lobster data sets do not contain biological replicates.  In this case edgeR is the only option as we can set a dispersion estimate.  The recommended dispersion estimate is between 0.1 and 0.4 depending on the organism. For the yeast I picked a dispersion value of 0.1 but more can read about dispersion in the edgeR documentation <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf" target="_blank">here.</a> In the case of the shrimp data we have two larvae replicates and two adult replicates.  We need to create a txt file describing these sample to replicate relationships to feed into edgeR.  Use nano to create the following tab delimited samples_described.txt file.</p>
 
 ```
@@ -32,6 +60,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 --output /home/nbumpus/shrimp/DifferentialExpression/isoform/
 ```
 <p>Note that this script calculates the differential expression at the isoform level.  You can also calculate differential expression at the gene level by using the shrimp.gene.counts.matrix and output to a new gene folder within the DifferentialExpression directory.  For the yeast data add the --dispersion 0.1 argument after the --method edgeR argument.  The output will give a set of differentially expressed isoforms, sets of up-regulated isoforms and MA and volcano plots describing differential expression between all pairwise comparisons.  Below are the MA and volcano plots for the shrimp data</p>
+
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
