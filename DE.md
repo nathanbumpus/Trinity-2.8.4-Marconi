@@ -24,9 +24,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 --log2 \
 --compare_replicates
 ```
-<p>This will produce a pdf file containing MA plots, volcano plots and a histogram depicting the comparison of replicates.  Below is shown the results for the larvae replicates.  We should have similar plots for the adult replicates.</p>
-
-<h2 align="center">Replicate Counts for Larvae</h2>
+<p>This will produce pdf's of a histogram of counts per replicate, scatter plots for each replicate, MA plots for each replicate and a heatmap.  Shown below are the counts histogram, scatter plots and MA plots for the larvae replicates.  The plots should be simmilar for the adult replicates.</p>
 
 <p>
   <img src="larvae_counts50.mod.jpg" alt="larvae counts">
@@ -34,13 +32,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
   <img src="larvae_MA50.mod.jpg" alt="larvae MA plot">
 </p>
 
-<h2 align="center">Heatmap for Larvae</h2>
-
-<p align="center">
-  <img src="larvaeheat50.jpg" alt="larvae heatmap">
-</p>
-
-<p>Next we can compare the replicates across all of the samples by running the following script in the DifferentialExpression directory and viewing the heatmap.</p>
+<p>Next run the following script to generate a heatmap of all of the combined samples and replicates.</p>
 
 ```
 #!/bin/bash -l
@@ -63,10 +55,12 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 --sample_cor_matrix
 ```
 
-<p>The resulting heatmap will be a file named shrimp.isoform.counts.matrix.log2.sample_cor_matrix.pdf.  It should look something like this</p>
+<p>Shown below are the heatmaps for the larvae, adult and all combined samples and replicates.</p>
 
-<p align="center">
-  <img src="samplesheat50.jpg" alt="samples heatmap">
+<p>
+  <img src="larvaeheat50.mod.jpg" alt="larvae heatmap">
+  <img src="adultheat50.mod.jpg" alt="adult heatmap">
+  <img src="samplesheat50.mod.jpg" alt="samples heatmap">
 </p>
 
 <p>We can also perform a principal components analysis to visualze the variation between samples and replicates.  Perform the principle components analysis by running the following script.</p>
