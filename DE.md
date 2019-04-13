@@ -57,7 +57,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <p>Shown below are the heatmaps for the larvae, adult and all combined samples and replicates.</p>
 
-<p>
+<p display="block">
   <img src="larvaeheat50.mod.jpg" alt="larvae heatmap">
   <img src="adultheat50.mod.jpg" alt="adult heatmap">
   <img src="samplesheat50.mod.jpg" alt="samples heatmap">
