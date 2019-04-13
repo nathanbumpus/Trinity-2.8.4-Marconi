@@ -2,7 +2,17 @@
 
 <h2 align="center">Comparison of Replicates</h2>
 
-<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  We need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory.  Then in the DifferentialExpression directory run the following script.</p>
+<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  We need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
+
+
+```
+larvae  larvae1
+larvae  larvae2
+adult   adult3
+adult   adult4
+```
+
+<p>Then run the following script from within the DifferentialExpression directory.</p>
 
 ```
 #!/bin/bash -l
@@ -107,14 +117,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 
 
-```
-larvae  larvae1
-larvae  larvae2
-adult   adult3
-adult   adult4
-```
 
-<p>Next make a new directory within the project directory called DifferentialExpression and use the following script to determine Differential Expression.</p>
 
 ```
 #!/bin/bash -l
