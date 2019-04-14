@@ -130,8 +130,8 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 <p>For the yeast data add the --dispersion 0.1 argument after the --method edgeR argument.  The output will give a set of differentially expressed isoforms, sets of up-regulated isoforms and MA and volcano plots describing differential expression between all pairwise comparisons.  Below are the MA and volcano plots for the shrimp data</p>
 
 <p>
-  <img src="shrimpMA75.jpg" alt="MA plot">
-  <img src="shrimpvol75.jpg" alt="Volcano plot">
+  <img src="shrimpMA50.jpg" alt="MA plot">
+  <img src="shrimpvol50.jpg" alt="Volcano plot">
 </p>
 
 
