@@ -2,7 +2,7 @@
 
 <h2 align="center">Comparison of Replicates</h2>
 
-<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  We need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
+<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  Note that here we have to decide whether we want to determine differential expression at the isoform or gene level.  To demonstrate I will determine differential expression at the isoform level but all of the scripts can be repeated at the gene level using the appropriate files as well.  Firs we need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
 
 
 ```
@@ -12,7 +12,7 @@ adult   adult3
 adult   adult4
 ```
 
-<p>Then run the following script from within the DifferentialExpression directory.</p>
+<p>Make a new isoform directory inside of the DifferentialExpression directory. Then run the following script from within the isoform directory.</p>
 
 ```
 #!/bin/bash -l
@@ -103,29 +103,9 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
   <img src="shrimppc.jpg" alt="principle compoments">
 </p>
 
-<h2 align="center">Calcultating Differential Expression"</h2>
+<h2 align="center">Calcultating Differential Expression</h2>
 
-<p>ignore everything below here for now.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>We can now calculate differential expression for the shrimp data set using whichever R package was earlier installed (edgeR, DESeq2 or limma).  I used edgeR for the data sets.  Use the following script to calculate the differential expression for the shrimp data set.</p>
 
 ```
 #!/bin/bash -l
@@ -147,7 +127,12 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 --samples_file /home/nbumpus/shrimp/samples_described.txt \
 --output /home/nbumpus/shrimp/DifferentialExpression/isoform/
 ```
-<p>Note that this script calculates the differential expression at the isoform level.  You can also calculate differential expression at the gene level by using the shrimp.gene.counts.matrix and output to a new gene folder within the DifferentialExpression directory.  For the yeast data add the --dispersion 0.1 argument after the --method edgeR argument.  The output will give a set of differentially expressed isoforms, sets of up-regulated isoforms and MA and volcano plots describing differential expression between all pairwise comparisons.  Below are the MA and volcano plots for the shrimp data</p>
+<p>For the yeast data add the --dispersion 0.1 argument after the --method edgeR argument.  The output will give a set of differentially expressed isoforms, sets of up-regulated isoforms and MA and volcano plots describing differential expression between all pairwise comparisons.  Below are the MA and volcano plots for the shrimp data</p>
+
+<p>
+  <img src="shrimpMA75.jpg" alt="MA plot">
+  <img src="shrimpvol75.jpg" alt="Volcano plot">
+</p>
 
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
