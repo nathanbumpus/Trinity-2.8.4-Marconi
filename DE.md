@@ -134,6 +134,34 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
   <img src="shrimpvol50.jpg" alt="Volcano plot">
 </p>
 
+<p>Next, run the following script to generate heatmaps of isoform clustering  Let's look at only the top 100 isoforms.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N shr-DE-iso-anlys
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:10:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd /home/nbumpus/shrimp/DifferentialExpression/isoform/
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
+--matrix /home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.TMM.EXPR.matrix \
+--samples /home/nbumpus/shrimp/samples_described.txt \
+--max_DE_genes_per_comparison 100 \
+--max_genes_clust 18000
+```
+<p>This will produce the heatmap shown below from which we can begin to extract clusters of isoforms of interest</p>
+
+<p align="center">
+  <img src="shrimpDEheatmap50.jpg" alt="DE heatmap">
+</p>
+
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
