@@ -45,45 +45,96 @@ in the cDNA library construction we add the --SS_lib_type RF argument after the 
 <p>To check the status of the assembly construction we can us the top command.  First obtain the job id by using the qstat command.  Then use the checkjob command and provide the job id.  The terminal output will contain an "Allocated Nodes" section telling us where the job is running.  Next ssh gromit which is the job scheduler.  From gromit we can ssh the node the job is running on.  Then use the top command.  We can use the -u argument and provide our username to show only the jobs we are running on the node.  Here we can see the %CPU which divided by 100 will tell us how many CPU's we are using.  RES shows the memory usage for the the job.  If we type "1" we can toggle and see which CPU's on the node are actively running our job.  If we type "c" the command column will expand to show exactly which script is running and which files are being used.  Below is the output for a top command for a job running on the n151 node.</p>
 
 ```
-top - 11:01:44 up 86 days, 15:34,  1 user,  load average: 1.64, 2.08, 2.32
-Tasks: 279 total,   2 running, 277 sleeping,   0 stopped,   0 zombie
-%Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu1  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu2  : 86.4 us, 13.6 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu3  :  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+[nbumpus@n151 ~]$ top -u nbumpus
+
+top - 11:46:02 up 86 days, 16:18,  1 user,  load average: 5.37, 4.38, 5.08
+Tasks: 289 total,   2 running, 287 sleeping,   0 stopped,   0 zombie
+%Cpu0  : 95.0 us,  4.6 sy,  0.0 ni,  0.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  2.0 us,  0.3 sy,  0.0 ni, 97.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu2  : 94.7 us,  5.3 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu4  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu5  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu6  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu7  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu8  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu9  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu10 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu11 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu12 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu13 :  0.3 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu8  : 95.7 us,  4.0 sy,  0.0 ni,  0.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu9  : 94.7 us,  5.0 sy,  0.0 ni,  0.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu10 :  0.0 us,  1.3 sy,  0.0 ni, 98.0 id,  0.0 wa,  0.0 hi,  0.7 si,  0.0 st
+%Cpu11 : 95.4 us,  4.3 sy,  0.0 ni,  0.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu12 : 89.0 us,  8.3 sy,  0.0 ni,  2.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu13 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu14 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu15 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu16 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-%Cpu17 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu17 :  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu18 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu19 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu20 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu21 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu22 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu23 :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-KiB Mem : 26404700+total,  5243064 free,  5749108 used, 25305483+buff/cache
-KiB Swap:        0 total,        0 free,        0 used. 25601696+avail Mem 
+KiB Mem : 26404700+total, 13341980+free, 13475548 used, 11715164+buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 24829128+avail Mem 
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                                        
- 9619 nbumpus   20   0 4252636 3.824g   2296 R 100.0  1.5  54:46.03 perl /opt/modules/centos7/trinity/2.8.4/util/insilico_read_normalization.pl --seqType fq --JM 240G --max_cov 200 --min_cov 1 --CPU 16 --outpu+ 
-10769 nbumpus   20   0  157868   2428   1548 R   0.3  0.0   0:00.15 top -u nbumpus                                                                                                                                 
+11086 nbumpus   20   0 11.351g 0.011t   1616 R 597.4  4.4  37:45.93 /opt/modules/centos7/trinity/2.8.4/Inchworm/bin//inchworm --kmers jellyfish.kmers.fa --run_inchworm -K 25 -L 25 --monitor 1 --num_threads 6 -+ 
  9454 nbumpus   20   0   11628   1572   1316 S   0.0  0.0   0:00.01 -bash                                                                                                                                          
  9477 nbumpus   20   0    9504   1496   1228 S   0.0  0.0   0:00.00 /bin/bash -l /var/spool/torque/mom_priv/jobs/102250.gromit.SC                                                                                  
- 9502 nbumpus   20   0   36440   8640   2320 S   0.0  0.0   0:00.11 perl /opt/modules/centos7/trinity/2.8.4/Trinity --seqType fq --SS_lib_type RF --left /home/nbumpus/lobster/trimmed_reads/all/all.left.fastq -+ 
-10739 nbumpus   20   0  136716   2200    984 S   0.0  0.0   0:00.00 sshd: nbumpus@pts/0                                                                                                                            
-10740 nbumpus   20   0  115516   2096   1616 S   0.0  0.0   0:00.00 -bash          
+ 9502 nbumpus   20   0  188024  12180   1684 S   0.0  0.0   0:06.02 perl /opt/modules/centos7/trinity/2.8.4/Trinity --seqType fq --SS_lib_type RF --left /home/nbumpus/lobster/trimmed_reads/all/all.left.fastq -+ 
+11049 nbumpus   20   0  136716   2204    992 S   0.0  0.0   0:00.07 sshd: nbumpus@pts/0                                                                                                                            
+11050 nbumpus   20   0  115516   2144   1656 S   0.0  0.0   0:00.02 -bash                                                                                                                                          
+11085 nbumpus   20   0    9512   1156    964 S   0.0  0.0   0:00.00 sh -c /opt/modules/centos7/trinity/2.8.4/Inchworm/bin//inchworm --kmers jellyfish.kmers.fa --run_inchworm -K 25 -L 25 --monitor 1   --num_thr+ 
+11152 nbumpus   20   0  157972   2548   1636 R   0.0  0.0   0:00.04 top -u nbumpus                     
 ```
-  
+<p>We can also get some more information about the job by using the cat command with the PID value.  First use ctrl-c to exit top then use the cat command for the for the job like so.</p>
+```
+[nbumpus@n151 ~]$ cat /proc/11086/status
+Name:	inchworm
+State:	R (running)
+Tgid:	11086
+Ngid:	11088
+Pid:	11086
+PPid:	11085
+TracerPid:	0
+Uid:	1647	1647	1647	1647
+Gid:	1557	1557	1557	1557
+FDSize:	64
+Groups:	1557 
+VmPeak:	12258676 kB
+VmSize:	12198288 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	11968540 kB
+VmRSS:	11968540 kB
+RssAnon:	11966924 kB
+RssFile:	     948 kB
+RssShmem:	     668 kB
+VmData:	12176828 kB
+VmStk:	     140 kB
+VmExe:	     168 kB
+VmLib:	    4652 kB
+VmPTE:	   23468 kB
+VmSwap:	       0 kB
+Threads:	6
+SigQ:	0/1031307
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000001000
+SigCgt:	0000000180000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+CapAmb:	0000000000000000
+Seccomp:	0
+Cpus_allowed:	ffffff
+Cpus_allowed_list:	0-23
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000003
+Mems_allowed_list:	0-1
+voluntary_ctxt_switches:	31111
+nonvoluntary_ctxt_switches:	1969
+```
  <a href="#top">back to top</a></p>
 
 
