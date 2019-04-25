@@ -1,4 +1,4 @@
-<h1 align="center">Annotations<h1>
+<h1 align="center">Annotations</h1>
 
 <P>Once we have the differentially expressed isoforms we can begin to functionally annotate them.  There are a few ways to do this.
 Here we will use blast+ to get functional annotations.  For the shrimp data we already have some functional annotations that we 
