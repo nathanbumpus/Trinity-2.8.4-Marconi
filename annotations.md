@@ -21,7 +21,7 @@ isolist.txt file like so</p>
 
 ```
 grep -vwF -f toberemoved.txt isolist.txt > newblastfile.txt
-``
+```
 
 <p>We should now have a new list of trinity id's that did not get a hit during the initial blasting.  We can now extract the sequences
 from the Trinity.fasta file associated with our list of trinity ids with the following script</p>
