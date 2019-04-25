@@ -1,4 +1,4 @@
-<h1 align="center">Results for the Yeast, Shrimp and Lobster Assemblies</h>
+<h1 align="center">Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
 <p>Below are the results generated from the trinity pipeline on marcroni for each of the three assemblies.</p>
 
