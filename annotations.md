@@ -43,7 +43,7 @@ $TRINITY_HOME/util/misc/acc_list_to_fasta_entries.pl \
 /home/nbumpus/shrimp/annotations/isoform/newblastfile.txt \
 /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 ```
-<p>We can now blast any data base we wish by downloading and building any data base we wish using the steps outlined in the assembly quality
+<p>We can now blast any data base we wish by downloading and building using the steps outlined in the assembly quality
 section. Once we get the new set of blast hits we can use the blastcoverage.sh script again to add annotations.  Finally use the 
 cat command to add the new annotations to the orignal annotations file like so</p>
 
@@ -57,7 +57,7 @@ multiple files containing smaller amounts of unannotated trinity id's.  This can
 ```
 split -l 10000 newblastfile.txt
 ```
-<p>This splits the newblastfile.txt into a number of files each containing 100000 ids.  The sequence extractions can then be performed
+<p>This splits the newblastfile.txt into a number of files each containing 10000 ids.  The sequence extractions can then be performed
 for each of these new files and the blast scripts for each file can be run in parallel on the cluster.  Again the blast script is 
 outlined in the assembly quality section.</p>
 
