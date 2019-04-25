@@ -113,5 +113,5 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
-
+* [Annotations](annotations.md)
 
