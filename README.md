@@ -14,3 +14,4 @@ This project focussed on the use of Trinity software on Marconi in developing de
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
+* [Annotations](annotations.md)
