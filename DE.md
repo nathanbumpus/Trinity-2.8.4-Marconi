@@ -171,3 +171,4 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
+* [Annotations](annotations.md)
