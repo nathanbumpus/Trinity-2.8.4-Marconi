@@ -513,4 +513,7 @@ CG4
 
 <h4 align="center">Priniciple Component Analysis</h4>
 
+<p align="center">
+  <img src="lobsterpc50.jpg" alt="PC">
+</p>
 
