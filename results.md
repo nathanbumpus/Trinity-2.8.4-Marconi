@@ -486,5 +486,28 @@ CG4
   <img src="PMNMA75.jpg" alt="MAplot">
 </p>
 
+<h4 align="center">MN Replicate Comparisons</h4>
 
+<p align="center">
+  <img src="MNbin75.jpg" alt="counts">
+  <img src="MNheat75.jpg" alt="heatmap">
+</p>
+
+<p align="center">
+  <img src="MNscat75.jpg" alt="scatterplot">
+  <img src="MNMA75.jpg" alt="MAplot">
+</p>
+
+
+<h4 align="center">CG Replicate Comparisons</h4>
+
+<p align="center">
+  <img src="CGbin75.jpg" alt="counts">
+  <img src="CGheat75.jpg" alt="heatmap">
+</p>
+
+<p align="center">
+  <img src="CGscat75.jpg" alt="scatterplot">
+  <img src="CGMA75.jpg" alt="MAplot">
+</p>
 
