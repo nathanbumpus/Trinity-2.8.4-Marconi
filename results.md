@@ -190,6 +190,18 @@ plat reads
 
 <p>Blastp functional annotations were obtained for 97 of the top 100 differentially expressed isoforms in this group</p>
 
+<h4 align="center">Heatmaps for Determining Cluster Extractions</h4>
+
+<p>Below is the heatmap to help visualize isoform clusters of interest.</p>
+
+<p align="center">
+  <img src="spHeatmap50.jpg" alt="Heatmap">
+</p>
+
+<h2 align="center">Shrimp Assembly</h2>
+
+<p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose.</p>
+
 
 
 
