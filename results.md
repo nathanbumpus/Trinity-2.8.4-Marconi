@@ -134,7 +134,7 @@ plat reads
 
 <h3 align="center">Differential Expression and Annotations</h3>
 
-<p>Below are the MA and volcano plots for visualizing the differentially expressed isoforms between each of the pairwise comparisons.</p>
+<p>Below are the MA and volcano plots for visualizing the differentially expressed isoforms between each of the pairwise comparisons and annotation statistics for the obtained differentially expressed isoforms.  The uniprot and trembl databases were used for the annotations.</p>
 
 <h4 align="center">ds versus hs</h4>
 
@@ -143,8 +143,52 @@ plat reads
   <img src="dsVShsVolcano50.jpg" alt="Volcanoplot">
 </p>
 
+<p>Blastp functional annotations were obtained for 86 of the 94 differentially expressed isoforms in this group</p>
 
+<h4 align="center">ds versus log</h4>
 
+<p align="center">
+  <img src="dsVSlogMA50.jpg" alt="MAplot">
+  <img src="dsVSlogVolcano50.jpg" alt="Volcanoplot">
+</p>
+
+<p>Blastp functional annotations were obtained for 99 of the top 100 differentially expressed isoforms in this group</p>
+
+<h4 align="center">ds versus plat</h4>
+
+<p align="center">
+  <img src="dsVSplatMA50.jpg" alt="MAplot">
+  <img src="dsVSplatVolcano50.jpg" alt="Volcanoplot">
+</p>
+
+<p>Blastp functional annotations were obtained for 68 of the 77 differentially expressed isoforms in this group</p>
+
+<h4 align="center">hs versus log</h4>
+
+<p align="center">
+  <img src="hsVSlogMA50.jpg" alt="MAplot">
+  <img src="hsVSlogVolcano50.jpg" alt="Volcanoplot">
+</p>
+
+<p>Blastp functional annotations were obtained for 94 of the top 100 differentially expressed isoforms in this group</p>
+
+<h4 align="center">hs versus plat</h4>
+
+<p align="center">
+  <img src="hsVSplatMA50.jpg" alt="MAplot">
+  <img src="hsVSplatVolcano50.jpg" alt="Volcanoplot">
+</p>
+
+<p>Blastp functional annotations were obtained for 98 of the top 100 differentially expressed isoforms in this group</p>
+
+<h4 align="center">log versus plat</h4>
+
+<p align="center">
+  <img src="logVSplatMA50.jpg" alt="MAplot">
+  <img src="logVSplatVolcano50.jpg" alt="Volcanoplot">
+</p>
+
+<p>Blastp functional annotations were obtained for 97 of the top 100 differentially expressed isoforms in this group</p>
 
 
 
