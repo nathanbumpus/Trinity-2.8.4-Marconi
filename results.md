@@ -51,9 +51,97 @@ Stats based on ALL transcript contigs:
   <img src="spEx90N50.25.jpg" alt="Ex90N50"> 
 </p>
 
+<h3 align="center">Alignment Statistics</h3>
 
+<p>Below are the alignment rates of the reads from each of the samples to the trinity assembly</p>
 
+```
+ds reads
+1000000 reads; of these:
+  1000000 (100.00%) were paired; of these:
+    74023 (7.40%) aligned concordantly 0 times
+    811523 (81.15%) aligned concordantly exactly 1 time
+    114454 (11.45%) aligned concordantly >1 times
+    ----
+    74023 pairs aligned concordantly 0 times; of these:
+      9992 (13.50%) aligned discordantly 1 time
+    ----
+    64031 pairs aligned 0 times concordantly or discordantly; of these:
+      128062 mates make up the pairs; of these:
+        99862 (77.98%) aligned 0 times
+        21441 (16.74%) aligned exactly 1 time
+        6759 (5.28%) aligned >1 times
+95.01% overall alignment rate
 
+hs reads
+1000000 reads; of these:
+  1000000 (100.00%) were paired; of these:
+    72134 (7.21%) aligned concordantly 0 times
+    790420 (79.04%) aligned concordantly exactly 1 time
+    137446 (13.74%) aligned concordantly >1 times
+    ----
+    72134 pairs aligned concordantly 0 times; of these:
+      8381 (11.62%) aligned discordantly 1 time
+    ----
+    63753 pairs aligned 0 times concordantly or discordantly; of these:
+      127506 mates make up the pairs; of these:
+        98520 (77.27%) aligned 0 times
+        21950 (17.21%) aligned exactly 1 time
+        7036 (5.52%) aligned >1 times
+95.07% overall alignment rate
+
+log reads
+1000000 reads; of these:
+  1000000 (100.00%) were paired; of these:
+    78228 (7.82%) aligned concordantly 0 times
+    783620 (78.36%) aligned concordantly exactly 1 time
+    138152 (13.82%) aligned concordantly >1 times
+    ----
+    78228 pairs aligned concordantly 0 times; of these:
+      10453 (13.36%) aligned discordantly 1 time
+    ----
+    67775 pairs aligned 0 times concordantly or discordantly; of these:
+      135550 mates make up the pairs; of these:
+        105156 (77.58%) aligned 0 times
+        23562 (17.38%) aligned exactly 1 time
+        6832 (5.04%) aligned >1 times
+94.74% overall alignment rate
+
+plat reads
+1000000 reads; of these:
+  1000000 (100.00%) were paired; of these:
+    76864 (7.69%) aligned concordantly 0 times
+    822698 (82.27%) aligned concordantly exactly 1 time
+    100438 (10.04%) aligned concordantly >1 times
+    ----
+    76864 pairs aligned concordantly 0 times; of these:
+      10743 (13.98%) aligned discordantly 1 time
+    ----
+    66121 pairs aligned 0 times concordantly or discordantly; of these:
+      132242 mates make up the pairs; of these:
+        100536 (76.02%) aligned 0 times
+        25258 (19.10%) aligned exactly 1 time
+        6448 (4.88%) aligned >1 times
+94.97% overall alignment rate
+```
+<h3 align="center">Strand Specificity</h3>
+
+<p>Violin plot suggesting that library construction was performed in a strand specific fashion</p>
+
+<p align="center">
+  <img src="spviolinplot.25.jpg" alt="violinplot">
+</p>
+
+<h3 align="center">Differential Expression and Annotations</h3>
+
+<p>Below are the MA and volcano plots for visualizing the differentially expressed isoforms between each of the pairwise comparisons.</p>
+
+<h4 align="center">ds versus hs</h4>
+
+<p align="center">
+  <img src="dsVShsMA50.jpg" alt="MAplot">
+  <img src="dsVShsVolcano50.jpg" alt="Volcanoplot">
+</p>
 
 
 
