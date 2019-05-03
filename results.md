@@ -474,4 +474,17 @@ CG4
 
 <h3 align="center">Comparison of Replicates and Principle Components</h3>
 
+<h4 align="center">PMN Replicate Comparisons</h4>
+
+<p align="center">
+  <img src="PMNbin75.jpg" alt="counts">
+  <img src="PMNheat75.jpg" alt="heatmap">
+</p>
+
+<p align="center">
+  <img src="PMNscat75.jpg" alt="scatterplot">
+  <img src="PMNMA75.jpg" alt="MAplot">
+</p>
+
+
 
