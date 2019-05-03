@@ -511,3 +511,6 @@ CG4
   <img src="CGMA75.jpg" alt="MAplot">
 </p>
 
+<h4 align="center">Priniciple Component Analysis</h4>
+
+
