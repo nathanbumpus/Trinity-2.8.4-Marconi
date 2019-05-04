@@ -517,10 +517,3 @@ CG4
   <img src="lobsterpc50.jpg" alt="PC">
 </p>
 
-<p>Among the CG replicates there is quite a bit of variation being described by the second principle component.  Looking back at the paper the one CG replicate that is not grouped with the others is the only replicate group that consisted of only females.  All other replicates groups consisted of a mix of males and females.  I then took the smaller set of samples from the the second lobster data set and attempted to map them back to the assembly I had created.  This group consisted of only maies.</p>
-
-<h3 align="center">Aligning the Males Back to the Assembly</h3>
-
-```
-
-
