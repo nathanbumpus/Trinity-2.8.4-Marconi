@@ -55,11 +55,9 @@ database I used was the NR database.  When blasting a large database like NR it 
 multiple files containing smaller amounts of unannotated trinity id's.  This can be accomplished using the split command like so</p>
 
 ```
-split -l 10000 newblastfile.txt
+split -l 500 newblastfile.txt
 ```
-<p>This splits the newblastfile.txt into a number of files each containing 10000 ids.  The sequence extractions can then be performed
-for each of these new files and the blast scripts for each file can be run in parallel on the cluster.  Again the blast script is 
-outlined in the assembly quality section.</p>
+<p>This splits the newblastfile.txt into a number of files each containing 500 ids.  The sequence extractions can then be performed for each of these new files and the blast scripts for each file can be run in parallel on the cluster.  Again the blast scripts are outlined in the assembly quality section.</p>
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
