@@ -294,7 +294,7 @@ $TRINITY_HOME/util/analyze_blastPlus_topHit_coverage.pl \
 /home/nbumpus/databases/uniprot_sprot.fasta
 ```
 
-<p>This will generate the pooled.blastx.outfmt6.hist file and only uses the single best matching transcript from the Trinity.fasta file to produce the graph below describing the percent coverage.  So if more than one transcript matches a database entry only the transcript with the highest percent coverage is counted.</p>
+<p>This will generate the pooled.blastx.outfmt6.hist file and only uses the single best matching transcript from the Trinity.fasta file to produce the graph below describing the percent coverage.  So if more than one transcript matches a database entry only the transcript with the highest percent coverage is counted.  This script will also generate the pooled.blastx.outfmt6.w_pct_hit_length file which is an extention of the pooled.blastx.outfmt6 file containing a header and functional annotations for the the blast hits.</p>
 
 ```
 #hit_pct_cov_bin        count_in_bin    >bin_below
