@@ -57,3 +57,4 @@ module load java
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [References](references.md)
