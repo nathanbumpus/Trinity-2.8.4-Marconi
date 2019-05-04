@@ -147,3 +147,4 @@ nonvoluntary_ctxt_switches:	1969
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [References](references.md)
