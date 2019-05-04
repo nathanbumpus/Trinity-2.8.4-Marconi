@@ -16,3 +16,4 @@ This project focussed on the use of Trinity software on Marconi in developing de
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
 * [Results](results.md)
+* [References](references.md)
