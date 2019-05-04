@@ -519,4 +519,23 @@ CG4
 
 <h3 align="center">Differential Expression Between the PMN and MN Regions of the CG Assembly</h3>
 
+<h4 align="center">MA and Volcano Plots</h4>
+
+<p align="center">
+  <img src="lobMA50.jpg" alt="MAplot">
+  <img src="lobVol50.jpg" alt="Volcanoplot">
+</p>
+
+<h4 align="center">Heatmap</h4>
+
+<p align="center">
+  <img src="lobHeat75.jpg" alt="Heatmap">
+</p>
+
+<h4 align="center">Heatmap of Top 100 Differentially Expressed Isoforms</h4>
+
+<p align="center">
+  <img src="lobHeatTop75.jpg" alt="Heatmap">
+</p>
+
 
