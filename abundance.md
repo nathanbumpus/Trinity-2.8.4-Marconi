@@ -10,7 +10,7 @@
 SRR4341161	/home/nbumpus/shrimp/abundances/larvae1 /home/nbumpus/shrimp/trinity_reads/SRR4341161_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341161_2.trim.paired.adj.fastq
 SRR4341162	/home/nbumpus/shrimp/abundances/larvae2 /home/nbumpus/shrimp/trinity_reads/SRR4341162_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341162_2.trim.paired.adj.fastq
 SRR4341163	/home/nbumpus/shrimp/abundances/adult3  /home/nbumpus/shrimp/trinity_reads/SRR4341163_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341163_2.trim.paired.adj.fastq
-SRR4341164	/home/nbumpus/shrimp/abundances/adult4  /home/nbumpus/shrimp/trinity_reads/SRR4341164_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fast
+SRR4341164	/home/nbumpus/shrimp/abundances/adult4  /home/nbumpus/shrimp/trinity_reads/SRR4341164_1.trim.paired.adj.fastq   /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 ```
 <p>The first column contains the name of the sample, followed by the output directory for the abundance estimates and finally the left reads followed by the right reads for the sample.  Next prepare the reference like so.</p>
 
@@ -114,4 +114,5 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [References](references.md)
 
