@@ -172,3 +172,4 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [References](references.md)
