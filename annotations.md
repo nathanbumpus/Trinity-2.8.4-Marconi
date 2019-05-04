@@ -61,6 +61,16 @@ split -l 10000 newblastfile.txt
 for each of these new files and the blast scripts for each file can be run in parallel on the cluster.  Again the blast script is 
 outlined in the assembly quality section.</p>
 
+<h2 align="center">Table of Contents<a id="contents"></a></h2>
+* [Home](README.md)
+* [Obtaining Data](data.md)
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
+* [Annotations](annotations.md)
+* [References](references.md)
 
 
 
