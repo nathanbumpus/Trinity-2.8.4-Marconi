@@ -143,7 +143,7 @@ plat reads
   <img src="dsVShsVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 86 of the 94 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 86 of the 94 differentially expressed isoforms in this group</p>
 
 <h4 align="center">ds versus log</h4>
 
@@ -152,7 +152,7 @@ plat reads
   <img src="dsVSlogVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 99 of the top 100 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 99 of the top 100 differentially expressed isoforms in this group</p>
 
 <h4 align="center">ds versus plat</h4>
 
@@ -161,7 +161,7 @@ plat reads
   <img src="dsVSplatVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 68 of the 77 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 68 of the 77 differentially expressed isoforms in this group</p>
 
 <h4 align="center">hs versus log</h4>
 
@@ -170,7 +170,7 @@ plat reads
   <img src="hsVSlogVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 94 of the top 100 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 94 of the top 100 differentially expressed isoforms in this group</p>
 
 <h4 align="center">hs versus plat</h4>
 
@@ -179,7 +179,7 @@ plat reads
   <img src="hsVSplatVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 98 of the top 100 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 98 of the top 100 differentially expressed isoforms in this group</p>
 
 <h4 align="center">log versus plat</h4>
 
@@ -188,7 +188,7 @@ plat reads
   <img src="logVSplatVolcano50.jpg" alt="Volcanoplot">
 </p>
 
-<p>Blastp functional annotations were obtained for 97 of the top 100 differentially expressed isoforms in this group</p>
+<p>Blast functional annotations were obtained for 97 of the top 100 differentially expressed isoforms in this group</p>
 
 <h4 align="center">Heatmaps for Determining Cluster Extractions</h4>
 
@@ -526,6 +526,8 @@ CG4
   <img src="lobVol50.jpg" alt="Volcanoplot">
 </p>
 
+<p>In comparing the PMN and MN regions of the CG blast functional annotations were obtained for 472 of the 1018 differentially expressed isoforms using the uniprot, trembl and NR databases.  Of the top 100 differentially expressed isoforms 77 were functionally annotated.</p>  
+
 <h4 align="center">Heatmap</h4>
 
 <p align="center">
@@ -538,4 +540,13 @@ CG4
   <img src="lobHeatTop75.jpg" alt="Heatmap">
 </p>
 
-
+<h2 align="center">Table of Contents<a id="contents"></a></h2>
+* [Home](README.md)
+* [Obtaining Data](data.md)
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
+* [Annotations](annotations.md)
+* [References](references.md)
