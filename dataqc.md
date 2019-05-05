@@ -68,7 +68,7 @@ ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30
 
 <p>Any over represented sequences that do not have any data available should be blasted against the NCBI database</p>
 
-<p>If we now perform a head command one of the fastq files in the trimmed_reads directory we should see something like this.</p>
+<p>If we now perform a head command on one of the fastq files in the trimmed_reads directory we should see something like this.</p>
 
 ```
 @D1317JN1:268:C5A93ACXX:4:1101:1719:2086_forward/1
@@ -84,7 +84,7 @@ ATTAACCTAAGTAAAAATATATTTGTTCATCATAATGGATAGCTACGTAATAGATTTAAATTTACTAGTTTTTTTTACTA
 
 ```
 
-<p>This looks good except for one thing.  At the end of the first line of each entry there is a _forward/1.  The /1 tells trinity that the read is from the forward or left strand.  Trinity will not recognize the _forward so we need to remove it so that the only thing left is /1.  First make a new directory in the project folder called trinity_reads and then run the following script.</p>
+<p>This looks good except for one thing.  At the end of the first line of each entry there is a _forward/1.  The /1 tells Trinity that the read is from the forward or left strand.  Trinity will not recognize the _forward so we need to remove it so that the only thing left is /1.  First make a new directory in the project folder called trinity_reads and then run the following script.</p>
 
 ```
 #!/bin/bash -l
