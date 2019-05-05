@@ -67,7 +67,7 @@ split -l 500 newblastfile.txt
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
-* [Annotations](annotations.md)
+* [Results](results.md)
 * [References](references.md)
 
 
