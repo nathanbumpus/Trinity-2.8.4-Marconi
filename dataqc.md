@@ -37,7 +37,7 @@ fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw
 
 <h2 align="center">Running Trimmomatic on Marconi<a id="trim"></a></h2>
 
-<p>To run Trimmomatic on Marconi use the following script for each set of the raw RNA seq reads</p>
+<p>To run Trimmomatic on Marconi use the following script for each set raw RNA seq reads</p>
 
 ```
 #!/bin/bash -l
@@ -64,7 +64,7 @@ ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30
 
 ```
 
-<p> Trimmomatic is a java program so we need to point our script at the jar file.  We then provide the read pairs that we want to trim and then direct their output to the trimmed_reads directory.  The ILLUNINACLIP line is where we specify how we want to trim the reads.  This step will perform the arguments in the order given so trim the adapters first.  The above script tells trimmomatic to remove the Illumina adapters, then trim the first 12 bases from reads, trim bases with a quality score less than 25 from the leading end and trailing ends of the reads and, lastly, drop reads that are less than 40 bases long.  Repeat this with lobster data as well. Then go back and run fastqc again. This time using the trimmed reads</p>
+<p> Trimmomatic is a java program so we need to point our script at the jar file.  We then provide the read pairs that we want to trim and then direct their output to the trimmed_reads directory.  The ILLUNINACLIP line is where we specify how we want to trim the reads.  This step will perform the arguments in the order given so trim the adapters first.  The above script tells trimmomatic to remove the Illumina adapters, then trim the first 12 bases from the reads, trim bases with a quality score less than 25 from the leading end and trailing ends of the reads and, lastly, drop reads that are less than 40 bases long.  Repeat this with the lobster data as well. Then go back and run fastqc again. This time using the trimmed reads</p>
 
 <p>Any over represented sequences that do not have any data available should be blasted against the NCBI database</p>
 
@@ -109,7 +109,7 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341163_2.trim.paired.fastq | perl -la
 cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -lane 's/_reverse//; print;' > /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 
 ```
-<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using trinity. <a href="#top">back to top</a></p>
+<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using Trinity. <a href="#top">back to top</a></p>
 
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
