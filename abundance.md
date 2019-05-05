@@ -1,6 +1,6 @@
 <h1 align="center">Estimating Transcript Abundance with Trinity<a id="top"></a></h1>
 
-<p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has direct support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundance.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1" target="_blank">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
+<p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundances.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1" target="_blank">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
 
 <h2 align="center">Non-Alignment Based Abundance Estimation with Salmon</h2>
 
@@ -16,7 +16,7 @@ SRR4341164	/home/nbumpus/shrimp/abundances/adult4  /home/nbumpus/shrimp/trinity_
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N referenceprep
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:10:00
@@ -38,7 +38,7 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N abundances
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=02:00:00
@@ -59,7 +59,7 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 --output_dir /home/nbumpus/shrimp/abundances/
 --thread_count 8
 ```
-<p>The current version of Salmon on Marconi is 0.12.0 which requires us to add the --validateMappings argument which we can do through the --salmon_add_opts argument.  --validateMappings is on by default versions of Salmon following 0.12.0.  We can dictate resources to be used by the --thread_count argument making sure that the --thread_count value is the same as the ppn in the Torque settings.</p>
+<p>The current version of Salmon on Marconi is 0.12.0 which requires us to add the --validateMappings argument which we can do through the --salmon_add_opts argument.  --validateMappings is on by default in versions of Salmon following 0.12.0.  We can dictate resources to be used by the --thread_count argument making sure that the --thread_count value is the same as the ppn in the Torque settings.</p>
 
 <p>Once the abundances have been estimated we should create a txt file containing the paths to all of the resulting quant.sf files. This file does not need to be tab dilimited and is simply a list.  Use nano to create a quant_files.txt file in the shrimp project directory like so.</p>
 
@@ -84,7 +84,7 @@ install.packages('ape')
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N matrix
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=01:00:00
