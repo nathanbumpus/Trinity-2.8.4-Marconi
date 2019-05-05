@@ -8,7 +8,7 @@
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N AssemblyStats
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:05:00
@@ -72,7 +72,7 @@ Stats based on ALL transcript contigs:
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N Bowtie2-build
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=02:00:00
@@ -90,9 +90,9 @@ bowtie2-build /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N bowtie2-shrimp1
-#PBS -l nodes=1:ppn=5
+#PBS -l nodes=1:ppn=4
 #PBS -l walltime=05:00:00
 #PBS -o out.txt
 #PBS -e err.txt
@@ -111,7 +111,7 @@ bowtie2 -p 4 -q \
 samtools view -@4 -Sb \
 -o /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.bam
 ```
-<p>This script tell Bowtie2 to use 4 threads and when aligning the fastq files (-q), then suppress SAM records for all unaligned reads and to report up to 20 alignments per read.  The results are written to an align_stats.txt file and piped to samtools to create a bam file.  The thread count from Bowtie2 is also piped to samtools and should be less than or equal to the ppn in the Torque settings.  We then specify that the output file should be .bam.</p>
+<p>This script tell Bowtie2 to use 4 threads and when aligning the fastq files (-q), then suppress SAM records for all unaligned reads and to report up to 20 alignments per read.  The results are written to an align_stats.txt file and piped to samtools to create a bam file.  The thread count from Bowtie2 is also piped to samtools and should be equal to the ppn in the Torque settings.  We then specify that the output file should be .bam.</p>
 
 <p>If we open the align_stats.txt file we will see something like this.</p>
 
@@ -132,7 +132,7 @@ samtools view -@4 -Sb \
         2760028 (53.23%) aligned >1 times
 97.78% overall alignment rate
 ```
-<p>This file tells us that ~93% of the reads from this sample aligned concordantly at least one time.  Bowtie2 then took the ~7% of the reads that did not align concordantly and tried to align them discordantly.  Bowtie2 was able to align ~17 percent of these reads discordantly.  Bowtie2 then attempted to align the remaining unaligned reads to the assembly as singletons and was successful with about 61% of these reads.  This gives an overall alignment rate of ~98%.  The mapping shown is an example of a sucessful alignment showing greater than 70% of the reads aligning concordantly and a high overall alignment rate greater than 80%. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+<p>This file tells us that ~93% of the reads from this sample aligned concordantly at least one time.  Bowtie2 then took the ~7% of the reads that did not align concordantly and tried to align them discordantly.  Bowtie2 was able to align ~17% of these reads discordantly.  Bowtie2 then attempted to align the remaining unaligned reads to the assembly as singletons and was successful with about 61% of these reads.  This gives an overall alignment rate of ~98%.  The mapping shown is an example of a sucessful alignment showing greater than 70% of the reads aligning concordantly to the assembly and a high overall alignment rate greater than 80%. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
 <h2 align="center">Determining Strand Specificity<a id="specificity"></a></h2>
 
@@ -140,7 +140,7 @@ samtools view -@4 -Sb \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N shrimp-str-spec
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=12:00:00
@@ -164,7 +164,7 @@ $TRINITY_HOME/util/misc/run_bowtie2.pl \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N shr-vio-plt-spec
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=10:00:00
@@ -186,7 +186,7 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
   <img src="violinplot25.jpg" alt="violin plot"> 
 </p>
 
-<p>The plot shows that as we approach the 100% of the total reads the median diff_ration is right around 0.0 with a high distribution of the reads centered around that median.  This suggests that the library is non-strand specific.  Results for the lobster and yeast data are shown in the powerpoint slides.  We can now use IGV to back up the assertion that the data is non-strand specific.</p>
+<p>The plot shows that as we approach the 100% of the total reads the median diff_ratio is right around 0.0 with a high distribution of the reads centered around that median.  This suggests that the library is non-strand specific.  We can now use IGV to back up the assertion that the data is non-strand specific.</p>
 
 <h2 align="center">Determining Strand Specificity With IGV</h2>
 
@@ -194,7 +194,7 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N total-igv
 #PBS -l nodes=1:ppn=8
 #PBS -l walltime=03:00:00
@@ -233,7 +233,7 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N builddb
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:05:00
@@ -251,7 +251,7 @@ makeblastdb -in /home/nbumpus/databases/uniprot_sprot.fasta \
 ```
 
 !/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N blast-pooled
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=48:00:00
@@ -277,7 +277,7 @@ blastx \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N blastcoverage
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:05:00
@@ -318,7 +318,7 @@ $TRINITY_HOME/util/analyze_blastPlus_topHit_coverage.pl \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N e90n50-pooled
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:10:00
@@ -334,11 +334,11 @@ $TRINITY_HOME/util/misc/contig_ExN50_statistic.pl \
 /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta | \
 tee /home/nbumpus/shrimp/assembly_quality/shrimp.ExN50.stats
 ```
-<p>The script will calculate the statistic and output to the shrimp.ExN50.stats file.  When we plot the data we want to start the plotting at around 30% instead of the default 1% to eliminated skewing of the graph by overly expressed transcripts.  Go into the shrimp.ExN50.stats file with nano and delete rows 1-29 and save the new file as shrimp.ExN50.30.stats but leave the header.  Once this is done run the following script to graph the results.</p>
+<p>The script will calculate the statistic and output to the shrimp.ExN50.stats file.  We can start the plotting anywhere between 1% and 30% by editing the stats file in nano. Run the following script to graph the results.</p>
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N plote90n50-pooled
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:05:00
@@ -361,7 +361,7 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
   <img src="ExN50.25.jpg" alt="ExN50 plot"> 
 </p>
 
-<P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A good example of a fragmented assembly that would benefit from deeper sequencing can be seen with the lobster data and is shown in the powerpoint slides. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/DE.html">Differential Expression.</a>  <a href="#top">back to top</a></p>
+<P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A fragmented assembly in need of deeper sequencing would look more like a foothill with no distinct peak at 90%. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/DE.html">Differential Expression.</a>  <a href="#top">back to top</a></p>
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
