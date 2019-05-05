@@ -369,8 +369,8 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
 * [Data Quality](dataqc.md)
 * [Building an Assembly](assembly.md)
 * [Abundance Estimation](abundance.md)
-* [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [Results](results.md)
 * [References](references.md)
 
