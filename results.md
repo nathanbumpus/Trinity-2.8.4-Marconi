@@ -1,13 +1,13 @@
 <h1 align="center"><a id="top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
-<p>Below are the results generated from the trinity pipeline on marcroni for each of the three assemblies.</p>
+<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.</p>
 
 <h2 align="center">Yeast Assembly</h2>
 
 <p>A small set of of RNA seq data used to construct a trinity assembly from samples from four conditions with no replicates.</p>
 
 <h3 align="center">Assembly Quality</h3>
-<p>Below are the stats basic stats for the yeast trinity assembly including the N50 statistic</p>
+<p>Below are the basic stats for the yeast Trinity assembly including the N50 statistic</p>
 ```
 ################################
 ## Counts of transcripts, etc.
@@ -53,7 +53,7 @@ Stats based on ALL transcript contigs:
 
 <h3 align="center">Alignment Statistics</h3>
 
-<p>Below are the alignment rates of the reads from each of the samples to the trinity assembly</p>
+<p>Below are the alignment rates of the reads from each of the samples to the Trinity assembly</p>
 
 ```
 ds reads
@@ -124,7 +124,6 @@ plat reads
         6448 (4.88%) aligned >1 times
 94.97% overall alignment rate
 ```
-<p><a href="#top">Back to Top</a> <a href="#contents"> Table of Contents</a>
 
 <h3 align="center">Strand Specificity</h3>
 
@@ -203,6 +202,8 @@ plat reads
 <h2 align="center">Shrimp Assembly</h2>
 
 <p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
+
+<p><a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
 
 <h2 align="center">Lobster Assembly</h2>
 
@@ -552,3 +553,4 @@ CG4
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
 * [References](references.md)
+<p><a href="#top">Back to Top</a></p>
