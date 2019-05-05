@@ -47,7 +47,7 @@ $TRINITY_HOME/util/misc/acc_list_to_fasta_entries.pl \
 ```
 cat DEisoAnnotations shrimp.trembl.blast.outfmt6 > totalDEannotations
 ```
-<p>We can keep repeating this process to reduce the size of the unannotated trinity id's.  Note that when blasting a large database like NR it is helpful to break the newblastfile.txt file into multiple files containing smaller amounts of unannotated trinity id's.  This can be accomplished using the split command like so</p>
+<p>We can keep repeating this process to reduce the size of the unannotated Trinity id's.  Note that when blasting a large database like NR it is helpful to break the newblastfile.txt file into multiple files containing smaller amounts of unannotated Trinity id's.  This can be accomplished using the split command like so</p>
 
 ```
 split -l 500 newblastfile.txt
