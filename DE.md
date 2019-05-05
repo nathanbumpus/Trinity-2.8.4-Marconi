@@ -2,7 +2,7 @@
 
 <h2 align="center">Comparison of Replicates</h2>
 
-<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  Note that here we have to decide whether we want to determine differential expression at the isoform or gene level.  To demonstrate I will determine differential expression at the isoform level but all of the scripts can be repeated at the gene level using the appropriate files as well.  Firs we need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
+<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  Note that here we have to decide whether we want to determine differential expression at the isoform or gene level.  To demonstrate I will determine differential expression at the isoform level but all of the scripts can be repeated at the gene level using the appropriate files as well.  First we need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
 
 
 ```
@@ -32,6 +32,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 -m /home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.counts.matrix \
 -s /home/nbumpus/shrimp/samples_described.txt \
 --log2 \
+--min_rowSums 10 \
 --compare_replicates
 ```
 <p>This will produce pdf's of a histogram of counts per replicate, scatter plots for each replicate, MA plots for each replicate and a heatmap.  Shown below are the counts histogram, scatter plots and MA plots for the larvae replicates.  The plots should be simmilar for the adult replicates.</p>
@@ -61,7 +62,9 @@ module load R/3.5.2
 $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 -m /home/nbumpus/shrimp/abundances/matrix/shrimp.isoform.counts.matrix \
 -s /home/nbumpus/shrimp/samples_described.txt \
+--min_rowSums 10 \
 --log2 \
+--CPM \
 --sample_cor_matrix
 ```
 
@@ -94,6 +97,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 -s /home/nbumpus/shrimp/samples_described.txt \
 --log2 \
 --CPM \
+--center_rows \
 --prin_comp 2
 ```
 
@@ -109,7 +113,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N shr-DE-iso
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=02:00:00
@@ -138,7 +142,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 
 ```
 #!/bin/bash -l
-#PBS -q bio
+#PBS -q haswell
 #PBS -N shr-DE-iso-anlys
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=00:10:00
