@@ -115,10 +115,10 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -la
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
 * [Obtaining Data](data.md)
-* [Data Quality](dataqc.md)
 * [Building an Assembly](assembly.md)
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [Results](results.md)
 * [References](references.md)
