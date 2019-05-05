@@ -1,4 +1,4 @@
-<h1 align="center"><a id="#top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
+<h1 align="center"><a id="top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
 <p>Below are the results generated from the trinity pipeline on marcroni for each of the three assemblies.</p>
 
@@ -124,7 +124,8 @@ plat reads
         6448 (4.88%) aligned >1 times
 94.97% overall alignment rate
 ```
-<p><a href="top">Back to Top</a> <a href="contents"> Table of Contents</a>
+<p><a href="#top">Back to Top</a> <a href="#contents"> Table of Contents</a>
+
 <h3 align="center">Strand Specificity</h3>
 
 <p>Violin plot suggesting that library construction was performed in a strand specific fashion</p>
@@ -541,7 +542,7 @@ CG4
   <img src="lobHeatTop75.jpg" alt="Heatmap">
 </p>
 
-<h2 align="center"><a href="#contents"></a>Table of Contents<a id="contents"></a></h2>
+<h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
 * [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
