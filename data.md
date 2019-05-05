@@ -46,15 +46,15 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341162.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/shrimp/raw_reads/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR4341161.sra
 ```
-<p>Repeat these steps for the SRA lobster data using SRR5428110, SRR5428111, SRR5428112, SRR5428113 or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a>.  The yeast data can be download via the command line using wget as described in the paper here <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/" target="_blank">yeast data</a> Once we have our data we can move on to cleaning up the data before building the assembly. <a href="#top">back to top</a></p>
+<p>Repeat these steps for the SRA lobster data from bioproject number PRJNA412549 or any other SRA data set you want to work with from NCBI.  If instead you want to download data from ENA you can do so directly from their website <a href="https://www.ebi.ac.uk/ena/browse/download" target="_blank">ENA website</a>.  The yeast data can be download via the command line using wget as described in the paper here <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/" target="_blank">yeast data</a> Once we have our data we can move on to cleaning up the data before building the assembly. <a href="#top">back to top</a></p>
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
-* [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
 * [Building an Assembly](assembly.md)
 * [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [Results](results.md)
 * [References](references.md)
