@@ -4,7 +4,7 @@
 Here we will use blast+ to get functional annotations.  For the shrimp data we already have some functional annotations that we obtained from blasting our assembly against the uniprot database.  We can use command line to extract the Trinity id's of the differentially expressed isoforms, add the annotations we already have to these id's and extract the id's that do not yet have an annotation to create a new list of id's to blast against another database.  I will demonstrate using the Trembl database.  First make a new directory in the shrimp directory called annotations and enter the directory.  Then use the awk command to extract a list of differentially expressed isoforms from the DE.subset file.</p>
 
 ```
-awk 'BEGIN{ FS=OFS="\t" }{ print $2 }' ../DifferentialExpression/isoform/shrimp.isoform.counts.matrix.adult_vs_larvae.edgeR.DE_results.P0.001_C2.DE.subset | grep TRINITY > isoDElist.txt
+awk 'BEGIN{ FS=OFS="\t" }{ print $1 }' ../DifferentialExpression/isoform/shrimp.isoform.counts.matrix.adult_vs_larvae.edgeR.DE_results.P0.001_C2.DE.subset | grep TRINITY > isoDElist.txt
 ```
 <p>Use awk again to extract the trinity ids that already have functional annotations into a toberemoved file.</p>
 
