@@ -207,7 +207,7 @@ plat reads
 
 <h2 align="center">Lobster Assembly</h2>
 
-<p>An assembly of the cardiac ganglion region represented by three sets of samples each containing four biological replicates with a combined total of ~250 million reads.  Note that a smaller set of samples was then mapped to the assembly.</p>
+<p>An assembly of the cardiac ganglion region represented by three sets of samples each containing four biological replicates with a combined total of ~250 million reads.</p>
 
 <h3 align="center">Assembly Quality</h3>
 
