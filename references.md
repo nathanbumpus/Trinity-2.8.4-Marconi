@@ -14,7 +14,7 @@
 
 <p>Thank you to Steven Cousins for helping to set up the new version of Trinity on the cluster and answering HPC questions.</p>
 
-<p>Thank you to Brian Haas for timely resposnses to questions on google groups.</p>
+<p>Thank you to Brian Haas for timely responses to questions on google groups.</p>
 
 <p>Thank you to Ben King for helping to outline the project</p>
 
