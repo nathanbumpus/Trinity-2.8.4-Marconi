@@ -147,4 +147,5 @@ nonvoluntary_ctxt_switches:	1969
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
 * [Results](results.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
