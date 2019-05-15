@@ -63,6 +63,7 @@ split -l 500 newblastfile.txt
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Results](results.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
 
 
