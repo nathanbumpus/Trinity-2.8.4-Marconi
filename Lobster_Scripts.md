@@ -1,4 +1,4 @@
-<h1 align="center>Scripts Used for Lobster Assembly</h1>
+<h1 align="center">Scripts Used for Lobster Assembly</h1>
 
 <h2 align="center">Dowload and Prepare the Raw Reads from NCBI</h2>
 
@@ -91,6 +91,10 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/lobster/raw_reads/mn/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR7156179.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/lobster/raw_reads/mn/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR7156178.sra
 ```
+
+<h1>Work Being Done Here</h1>
+
+
 * [Home](README.md)
 * [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
