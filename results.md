@@ -552,5 +552,6 @@ CG4
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
 <p><a href="#top">Back to Top</a></p>
