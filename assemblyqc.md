@@ -372,5 +372,6 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
 * [Results](results.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
 
