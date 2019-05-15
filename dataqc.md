@@ -121,4 +121,5 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -la
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
 * [Results](results.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
