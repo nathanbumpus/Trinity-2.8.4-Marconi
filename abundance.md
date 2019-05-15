@@ -110,9 +110,9 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 * [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
 * [Building an Assembly](assembly.md)
-* [Abundance Estimation](abundance.md)
 * [Assembly Quality](assemblyqc.md)
 * [Differential Expression](DE.md)
 * [Annotations](annotations.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
 
