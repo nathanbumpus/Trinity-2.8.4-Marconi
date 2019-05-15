@@ -176,4 +176,5 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 * [Assembly Quality](assemblyqc.md)
 * [Annotations](annotations.md)
 * [Results](results.md)
+* [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
