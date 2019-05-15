@@ -92,5 +92,13 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/lobster/raw_reads/mn/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR7156178.sra
 ```
 
-
+* [Obtaining Data](data.md)
+* [Data Quality](dataqc.md)
+* [Building an Assembly](assembly.md)
+* [Abundance Estimation](abundance.md)
+* [Assembly Quality](assemblyqc.md)
+* [Differential Expression](DE.md)
+* [Annotations](annotations.md)
+* [Results](results.md)
+* [References](references.md)
 
