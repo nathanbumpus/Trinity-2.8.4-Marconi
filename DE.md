@@ -38,9 +38,9 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 <p>This will produce pdf's of a histogram of counts per replicate, scatter plots for each replicate, MA plots for each replicate and a heatmap.  Shown below are the counts histogram, scatter plots and MA plots for the larvae replicates.  The plots should be simmilar for the adult replicates.</p>
 
 <p>
-  <img src="larvae_counts50.mod.jpg" alt="larvae counts">
-  <img src="log2_read_cnt50.mod.jpg" alt="larvae scatter plot">
-  <img src="larvae_MA50.mod.jpg" alt="larvae MA plot">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvae_counts50.mod.jpg" alt="larvae counts">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/log2_read_cnt50.mod.jpg" alt="larvae scatter plot">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvae_MA50.mod.jpg" alt="larvae MA plot">
 </p>
 
 <p>Next run the following script to generate a heatmap of all of the combined samples and replicates.</p>
@@ -71,9 +71,9 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 <p>Shown below are the heatmaps for the larvae, adult and all combined samples and replicates.</p>
  
 <p>
-  <img src="larvaeheat50.mod.jpg" alt="larvae heatmap">
-  <img src="adultheat50.mod.jpg" alt="adult heatmap">
-  <img src="samplesheat50.mod.jpg" alt="samples heatmap">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvaeheat50.mod.jpg" alt="larvae heatmap">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/adultheat50.mod.jpg" alt="adult heatmap">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/samplesheat50.mod.jpg" alt="samples heatmap">
 </p>
 
 <p>We can also perform a principal components analysis to visualze the variation between samples and replicates.  Perform the principle components analysis by running the following script.</p>
@@ -104,7 +104,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 <p>This should produce the following plot shown below.</p>
 
 <p align="center">
-  <img src="shrimppc.jpg" alt="principle compoments">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/shrimppc.jpg" alt="principle compoments">
 </p>
 
 <h2 align="center">Calcultating Differential Expression</h2>
@@ -134,8 +134,8 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 <p>For the yeast data add the --dispersion 0.1 argument after the --method edgeR argument.  The output will give a set of differentially expressed isoforms, sets of up-regulated isoforms and MA and volcano plots describing differential expression between all pairwise comparisons.  Below are the MA and volcano plots for the shrimp data</p>
 
 <p align="center">
-  <img src="shrimpMA50.jpg" alt="MA plot">
-  <img src="shrimpvol50.jpg" alt="Volcano plot">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/shrimpMA50.jpg" alt="MA plot">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/shrimpvol50.jpg" alt="Volcano plot">
 </p>
 
 <p>Next, run the following script to generate heatmaps of isoform clustering  Let's look at only the top 100 isoforms.</p>
@@ -163,7 +163,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 <p>This will produce the heatmap shown below from which we can begin to extract clusters of isoforms of interest</p>
 
 <p align="center">
-  <img src="shrimpDEheatmap50.jpg" alt="DE heatmap">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/shrimpDEheatmap50.jpg" alt="DE heatmap">
 </p>
 
 
