@@ -183,7 +183,7 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
 <p>We should get a pooled.dat table containing a diff_ratio for each of the transcripts and a pdf containing violin plots depicting this graph.  The pdf can be sftp'd to your computer and viewed.  For the shrimp data we should get a plot similar to this.</p>
 
 <p align="center">
-  <img src="violinplot25.jpg" alt="violin plot"> 
+  <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/violinplot25.jpg" alt="violin plot"> 
 </p>
 
 <p>The plot shows that as we approach the 100% of the total reads the median diff_ratio is right around 0.0 with a high distribution of the reads centered around that median.  This suggests that the library is non-strand specific.  We can now use IGV to back up the assertion that the data is non-strand specific.</p>
@@ -222,7 +222,7 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 <p>This script uses samtools to first create the coordinate sorted bam files for all of the reads, then index the coordinate sorted bam files and then index the assembly.  These files can then be sftp'd to your computer and viewed in IGV.  In IGV color the alignments as first-of-pair-strand.  If we pick an area of dense coverage we will see something like the following</p>
 
 <p align="center">
-  <img src="igv50.jpg" alt="igv"> 
+  <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/igv50.jpg" alt="igv"> 
 </p>
 
 <p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.<a href="#top">back to top </a><a href="#contents">table of contents</a></p>
@@ -358,7 +358,7 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
 <p>Sftp the pdf file to your computer to view the graph.  It should look like this.</p>
 
 <p align="center">
-  <img src="ExN50.25.jpg" alt="ExN50 plot"> 
+  <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/ExN50.25.jpg" alt="ExN50 plot"> 
 </p>
 
 <P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A fragmented assembly in need of deeper sequencing would look more like a foothill with no distinct peak at 90%. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/DE.html">Differential Expression.</a>  <a href="#top">back to top</a></p>
