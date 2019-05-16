@@ -39,7 +39,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 
 <p>
   <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvae_counts50.mod.jpg" alt="larvae counts">
-  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/log2_read_cnt50.mod.jpg" alt="larvae scatter plot">
+  <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/log2_read_cnt5.mod.jpg" alt="larvae scatter plot">
   <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvae_MA50.mod.jpg" alt="larvae MA plot">
 </p>
 
