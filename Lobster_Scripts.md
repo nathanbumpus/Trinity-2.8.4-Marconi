@@ -194,6 +194,48 @@ java -jar /opt/modules/universal/trimmomatic/0.36/trimmomatic-0.36.jar PE -phred
 /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.unpaired.fastq \
 ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30:10 HEADCROP:9 LEADING:20 TRAILING:20 MINLEN:50
 ```
+<p>Next perform fastqc again only this time using the resulting trimmed reads as inputs.  Once we have determined that reads have been sufficiently trimmed we can use these reads to build the assembly.</p>
+
+<h2 align="center">Lobster Assembly</h2>
+
+<p>Instead of catonating all of the left reads together and all of the right reads together we can create a tab deliminited assembly_samples_file.txt file describing each pair of left and right reads like so.</p>
+
+```
+PMN     PMN2    /home/nbumpus/lobster/trinity_reads/left/SRR7156183_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156183_2.trim.paired.fastq
+PMN     PMN1    /home/nbumpus/lobster/trinity_reads/left/SRR7156182_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156182_2.trim.paired.fastq
+PMN     PMN4    /home/nbumpus/lobster/trinity_reads/left/SRR7156173_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156173_2.trim.paired.fastq
+PMN     PMN3    /home/nbumpus/lobster/trinity_reads/left/SRR7156172_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156172_2.trim.paired.fastq
+MN	MN2     /home/nbumpus/lobster/trinity_reads/left/SRR7156181_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156181_2.trim.paired.fastq
+MN	MN1     /home/nbumpus/lobster/trinity_reads/left/SRR7156180_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156180_2.trim.paired.fastq
+MN	MN4     /home/nbumpus/lobster/trinity_reads/left/SRR7156179_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156179_2.trim.paired.fastq
+MN	MN3     /home/nbumpus/lobster/trinity_reads/left/SRR7156178_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156178_2.trim.paired.fastq
+CG	CG2     /home/nbumpus/lobster/trinity_reads/left/SRR7156177_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156177_2.trim.paired.fastq
+CG	CG1     /home/nbumpus/lobster/trinity_reads/left/SRR7156176_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156176_2.trim.paired.fastq
+CG	CG4     /home/nbumpus/lobster/trinity_reads/left/SRR7156175_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156175_2.trim.paired.fastq
+CG	CG3     /home/nbumpus/lobster/trinity_reads/left/SRR7156174_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156174_2.trim.paired.fastq
+```
+<p>Each line in the file has the group name followed by the replicate name followed by the left reads followed by the right reads.  This file can then be fed into the trinity script to construct the assembly as shown below.</p>
+
+```
+#!/bin/bash -l
+#PBS -q bio
+#PBS -N stuckonchrysallis
+#PBS -l nodes=fast1:ppn=12
+#PBS -l walltime=240:00:00
+#PBS -o out4.txt
+#PBS -e err4.txt
+cd #PBS_O_WORKDIR
+
+module load python
+module load trinity/2.8.4
+
+Trinity --seqType fq --SS_lib_type RF --normalize_max_read_cov 50 --min_contig_length 324 \
+--samples_file /home/nbumpus/lobster/assembly_samples_file.txt \
+--output /home/nbumpus/lobster/trinity_out_dir3 \
+--CPU 12 \
+--max_memory 250G
+```
+<p>This script needs to be run on one of the high memory bio nodes.  By specifying that this job should run on the fast1 node we take all of the available CPU's and ensure that we have access to all of the memory on that node.  This also leaves the larger bio node free for others to use.  This job should take between three and four days to run.</p>
 
 
 
