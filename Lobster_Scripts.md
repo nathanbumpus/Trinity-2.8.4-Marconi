@@ -169,6 +169,32 @@ fastqc -f fastq -o /home/nbumpus/lobster/fastqc_reports/mn/ /home/nbumpus/lobste
 
 <h2 align="center">Trimmomatic</h2>
 
+<p>Below is one of the trimmoatic scripts used to clean one of the sets of reads.  We can adjust this script for each set of reads and run all of the scripts in parallel.  Here is the script used for one set of the Premotor Neuron reads</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N trim72
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=1:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load java
+module load trimmomatic
+
+java -jar /opt/modules/universal/trimmomatic/0.36/trimmomatic-0.36.jar PE -phred33 \
+/home/nbumpus/lobster/raw_reads/pmn/SRR7156172_1.fastq \
+/home/nbumpus/lobster/raw_reads/pmn/SRR7156172_2.fastq \
+/home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_1.trim.paired.fastq \
+/home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_1.trim.unpaired.fastq \
+/home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.paired.fastq \
+/home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.unpaired.fastq \
+ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30:10 HEADCROP:9 LEADING:20 TRAILING:20 MINLEN:50
+```
+
 
 
 <h1>Work Being Done Here</h1>
