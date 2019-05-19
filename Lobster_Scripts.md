@@ -237,8 +237,113 @@ Trinity --seqType fq --SS_lib_type RF --normalize_max_read_cov 50 --min_contig_l
 ```
 <p>This script needs to be run on one of the high memory bio nodes.  By specifying that this job should run on the fast1 node we take all of the available CPU's and ensure that we have access to all of the memory on that node.  This also leaves the larger bio node free for others to use.  This job should take between three and four days to run.</p>
 
+<h2 align="center">Abundance Estimates</h2>
 
+<p>The abundance estimations can be calculated by running the following series of scripts after setting up an abundances directory.  We can use salmon for this task but RSEM will also work.  The first step when using salmon is to prepare a reference.  We can accomplish this by using the following script.</p>
 
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N referenceprep
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=10:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/align_and_estimate_abundance.pl \
+--transcripts /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta \
+--est_method salmon \
+--gene_trans_map /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta.gene_trans_map \
+--SS_lib_type RF \
+--prep_reference
+```
+<p>Create a tab delimiited text file describing the sample to replicate relationships along with file paths to the reads.  The file should look similar to this</p>
+
+```
+SRR7156183	/home/nbumpus/lobster/abundances/PMN2   /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156183_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156183_2.trim.paired.fastq
+SRR7156182	/home/nbumpus/lobster/abundances/PMN1   /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156182_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156182_2.trim.paired.fastq
+SRR7156173	/home/nbumpus/lobster/abundances/PMN4   /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156173_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156173_2.trim.paired.fastq
+SRR7156172	/home/nbumpus/lobster/abundances/PMN3   /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.paired.fastq
+SRR7156181	/home/nbumpus/lobster/abundances/MN2   /home/nbumpus/lobster/trimmed_reads/mn/SRR7156181_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/mn/SRR7156181_2.trim.paired.fastq
+SRR7156180	/home/nbumpus/lobster/abundances/MN1   /home/nbumpus/lobster/trimmed_reads/mn/SRR7156180_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/mn/SRR7156180_2.trim.paired.fastq
+SRR7156179	/home/nbumpus/lobster/abundances/MN4   /home/nbumpus/lobster/trimmed_reads/mn/SRR7156179_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/mn/SRR7156179_2.trim.paired.fastq
+SRR7156178	/home/nbumpus/lobster/abundances/MN3   /home/nbumpus/lobster/trimmed_reads/mn/SRR7156178_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/mn/SRR7156178_2.trim.paired.fastq
+SRR7156177	/home/nbumpus/lobster/abundances/CG2   /home/nbumpus/lobster/trimmed_reads/cg/SRR7156177_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/cg/SRR7156177_2.trim.paired.fastq
+SRR7156176	/home/nbumpus/lobster/abundances/CG1   /home/nbumpus/lobster/trimmed_reads/cg/SRR7156176_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/cg/SRR7156176_2.trim.paired.fastq
+SRR7156175	/home/nbumpus/lobster/abundances/CG4   /home/nbumpus/lobster/trimmed_reads/cg/SRR7156175_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/cg/SRR7156175_2.trim.paired.fastq
+SRR7156174	/home/nbumpus/lobster/abundances/CG3   /home/nbumpus/lobster/trimmed_reads/cg/SRR7156174_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/cg/SRR7156174_2.trim.paired.fastq
+```
+<p>Feed this file into the the following script as the --samples_file argument like so.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N abundances
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=10:00:00
+#PBS -o abundout.txt
+#PBS -e abunderr.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/align_and_estimate_abundance.pl \
+--transcripts /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta \
+--seqType fq \
+--est_method salmon \
+--samples_file /home/nbumpus/lobster/samples_file.txt \
+--salmon_add_opts --validateMappings \
+--gene_trans_map /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta.gene_trans_map \
+--output_dir /home/nbumpus/lobster/abundances/ \
+--thread_count 12
+```
+<p>This will generate the quant.sf files to be used to generate the matrices.  First make a matrix directory inside the abundances directory and then make a text file listing the file paths to each of the quant.sf files.  The file should look similar to this</p>
+
+```
+/home/nbumpus/lobster/abundances/PMN2/quant.sf
+/home/nbumpus/lobster/abundances/PMN1/quant.sf
+/home/nbumpus/lobster/abundances/PMN4/quant.sf
+/home/nbumpus/lobster/abundances/PMN3/quant.sf
+/home/nbumpus/lobster/abundances/MN2/quant.sf
+/home/nbumpus/lobster/abundances/MN1/quant.sf
+/home/nbumpus/lobster/abundances/MN4/quant.sf
+/home/nbumpus/lobster/abundances/MN3/quant.sf
+/home/nbumpus/lobster/abundances/CG2/quant.sf
+/home/nbumpus/lobster/abundances/CG1/quant.sf
+/home/nbumpus/lobster/abundances/CG4/quant.sf
+/home/nbumpus/lobster/abundances/CG3/quant.sf
+```
+<p>Feed this file into the --quant_files argument in the following script to generate the matrices.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N matrix
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=05:00:00
+#PBS -o matrixout.txt
+#PBS -e matrixerr.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
+--est_method salmon \
+--gene_trans_map /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta.gene_trans_map2 \
+--name_sample_by_basedir \
+--out_prefix /home/nbumpus/lobster/abundances/matrix/lobster \
+--quant_files /home/nbumpus/lobster/quant_files.txt
+```
+<p>You may notice that Trinity.fasta.gene_trans_map file has been modified.  This is due to an artifact that is sometimes generated when Trinity works with Salmon and the auto removal fails.  We can grep the Trinity id of the offending abundance and remove the entry from the Trinity.fasta.gene_trans_map file</p>
+
+<p>Once this script finishes we should have counts matrices and EXPR matrices for both the isoforms and the genes.  We can now evaluate the quality of our assembly</p>
 <h1>Work Being Done Here</h1>
 
 
