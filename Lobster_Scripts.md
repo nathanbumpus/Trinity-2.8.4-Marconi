@@ -344,6 +344,11 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 <p>You may notice that Trinity.fasta.gene_trans_map file has been modified.  This is due to an artifact that is sometimes generated when Trinity works with Salmon and the auto removal fails.  We can grep the Trinity id of the offending abundance and remove the entry from the Trinity.fasta.gene_trans_map file</p>
 
 <p>Once this script finishes we should have counts matrices and EXPR matrices for both the isoforms and the genes.  We can now evaluate the quality of our assembly</p>
+
+<h2 align="center">Assembly Quality</h2>
+
+
+
 <h1>Work Being Done Here</h1>
 
 
