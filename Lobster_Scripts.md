@@ -491,7 +491,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 --samples_file /home/nbumpus/lobster/samples_described.txt \
 --output /home/nbumpus/lobster/DifferentialExpression/isoform/
 ```
-<p>Second, from with the directory containing the differential expression results (the same directory ast the --output from the previous script) run the following script to obtain subsets of up regulated isoforms and heatmaps.</p>
+<p>Second, from with the directory containing the differential expression results (the same directory as the --output from the previous script) run the following script to obtain subsets of up regulated isoforms and heatmaps.</p>
 
 ```
 #!/bin/bash -l
