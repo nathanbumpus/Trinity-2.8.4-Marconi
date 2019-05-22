@@ -2,7 +2,7 @@
 
 <p>This page contains the scripts to use when working with the lobster data.  Scripts contained on this page may be of use in <a href="#download">downloading data</a> from NCBI, <a href="#separating">separating reads</a> in SRA format into left and right reads, performing <a href="#fastqc">fastqc </a>on the reads, <a href="#trim">trimming reads</a> with trimmomatic, <a href="#assembly">building the assembly</a>, <a href="#abundances">abundance estimation</a>, assesing the <a href="#quality">quality </a>of the assembly, <a href="#map">mapping </a>the reads back to the assembly, viewing the mappings in <a href="#igv">IGV </a> and determining which isoforms are <a href="#DE">differentially expressed</a>.
 
-<h2 align="center"><a id="download"</a>Download and Prepare the Raw Reads from NCBI</h2>
+<h2 align="center"><a id="download"></a>Download and Prepare the Raw Reads from NCBI</h2>
 
 <p>First run the following script to download each set of raw reads using the SRA toolkit.</p>
 
