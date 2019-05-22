@@ -1,6 +1,8 @@
-<h1 align="center">Scripts Used for Lobster Assembly</h1>
+<h1 align="center"><a id="top"></a>Scripts Used for Lobster Assembly</h1>
 
-<h2 align="center">Dowload and Prepare the Raw Reads from NCBI</h2>
+<p>This page contains the scripts to use when working with the lobster data.  Scripts contained on this page may be of use in <a href="#download">downloading data</a> from NCBI, <a href="#separating">separating reads</a> in SRA format into left and right reads, performing <a href="#fastqc">fastqc </a>on the reads, <a href="#trim">trimming reads</a> with trimmomatic, <a href="#assembly">building the assembly</a>, <a href="#abundances">abundance estimation</a>, assesing the <a href="#quality">quality </a>of the assembly, <a href="#map">mapping </a>the reads back to the assembly, viewing the mappings in <a href="#igv">IGV </a> and determining which isoforms are <a href="#DE">differentially expressed</a>.
+
+<h2 align="center"><a id="download"</a>Download and Prepare the Raw Reads from NCBI</h2>
 
 <p>First run the following script to download each set of raw reads using the SRA toolkit.</p>
 
@@ -30,7 +32,7 @@ module load java
 ./prefetch.2.9.4 -v SRR7156173
 ./prefetch.2.9.4 -v SRR7156172
 ```
-<p>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group.</p>
+<p><a id="separating"></a>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
 ```
 #!/bin/bash -l
@@ -91,8 +93,9 @@ module load java
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/lobster/raw_reads/mn/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR7156179.sra
 ./fastq-dump.2.9.4 --outdir /home/nbumpus/lobster/raw_reads/mn/ --defline-seq '@$sn[_$rn]/$ri' --split-files /home/nbumpus/ncbi/public/sra/SRR7156178.sra
 ```
+<a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
-<h2 align="center">FastQC</h2>
+<h2 align="center"><a id="fastqc"></a>FastQC</h2>
 
 <p>We should now have sets of left and right reads for each sample.  We can now use the following scripts in parallel to run fastqc for each set of reads.</p>
 
@@ -165,9 +168,10 @@ fastqc -f fastq -o /home/nbumpus/lobster/fastqc_reports/mn/ /home/nbumpus/lobste
 fastqc -f fastq -o /home/nbumpus/lobster/fastqc_reports/mn/ /home/nbumpus/lobster/raw_reads/mn/SRR7156178_1.fastq
 fastqc -f fastq -o /home/nbumpus/lobster/fastqc_reports/mn/ /home/nbumpus/lobster/raw_reads/mn/SRR7156178_2.fastq
 ```
-<p>Note that we can split the sets of reads into as many scripts as we want or run them all in one script.  I found it helpful to keep everything organized by condition.  After reviewing the fastqc reports we can use trimmomatic to clean the reads of contaminants.</p>
 
-<h2 align="center">Trimmomatic</h2>
+<p>Note that we can split the sets of reads into as many scripts as we want or run them all in one script.  I found it helpful to keep everything organized by condition.  After reviewing the fastqc reports we can use trimmomatic to clean the reads of contaminants.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
+
+<h2 align="center"><a id="trim"></a>Trimmomatic</h2>
 
 <p>Below is one of the trimmoatic scripts used to clean one of the sets of reads.  We can adjust this script for each set of reads and run all of the scripts in parallel.  Here is the script used for one set of the Premotor Neuron reads</p>
 
@@ -194,9 +198,9 @@ java -jar /opt/modules/universal/trimmomatic/0.36/trimmomatic-0.36.jar PE -phred
 /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.unpaired.fastq \
 ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30:10 HEADCROP:9 LEADING:20 TRAILING:20 MINLEN:50
 ```
-<p>Next perform fastqc again only this time using the resulting trimmed reads as inputs.  Once we have determined that reads have been sufficiently trimmed we can use these reads to build the assembly.</p>
+<p>Next perform fastqc again only this time using the resulting trimmed reads as inputs.  Once we have determined that reads have been sufficiently trimmed we can use these reads to build the assembly.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
-<h2 align="center">Lobster Assembly</h2>
+<h2 align="center"><a id="assembly"></a>Lobster Assembly</h2>
 
 <p>Instead of catonating all of the left reads together and all of the right reads together we can create a tab deliminited assembly_samples_file.txt file describing each pair of left and right reads like so.</p>
 
@@ -235,9 +239,9 @@ Trinity --seqType fq --SS_lib_type RF --normalize_max_read_cov 50 --min_contig_l
 --CPU 12 \
 --max_memory 250G
 ```
-<p>This script needs to be run on one of the high memory bio nodes.  By specifying that this job should run on the fast1 node we take all of the available CPU's and ensure that we have access to all of the memory on that node.  This also leaves the larger bio node free for others to use.  This job should take between three and four days to run.</p>
+<p>This script needs to be run on one of the high memory bio nodes.  By specifying that this job should run on the fast1 node we take all of the available CPU's and ensure that we have access to all of the memory on that node.  This also leaves the larger bio node free for others to use.  This job should take between three and four days to run.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
-<h2 align="center">Abundance Estimates</h2>
+<h2 align="center"><a id="abundances"></a>Abundance Estimates</h2>
 
 <p>The abundance estimations can be calculated by running the following series of scripts after setting up an abundances directory.  We can use salmon for this task but RSEM will also work.  The first step when using salmon is to prepare a reference.  We can accomplish this by using the following script.</p>
 
@@ -343,9 +347,9 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 ```
 <p>You may notice that Trinity.fasta.gene_trans_map file has been modified.  This is due to an artifact that is sometimes generated when Trinity works with Salmon and the auto removal fails.  We can grep the Trinity id of the offending abundance and remove the entry from the Trinity.fasta.gene_trans_map file</p>
 
-<p>Once this script finishes we should have counts matrices and EXPR matrices for both the isoforms and the genes.  We can now evaluate the quality of our assembly</p>
+<p>Once this script finishes we should have counts matrices and EXPR matrices for both the isoforms and the genes.  We can now evaluate the quality of our assembly</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
-<h2 align="center">Assembly Quality</h2>
+<h2 align="center"><a id="quality"></a>Assembly Quality</h2>
 
 <p>The following script can be used to generate the basic assembly stats including the N50 statistic.</p>
 
@@ -365,7 +369,7 @@ module load trinity/2.8.4
 $TRINITY_HOME/util/TrinityStats.pl \
 /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta
 ```
-<p>To produce alignmentment statistics using bowtie2 first use the following script to build an index</p>
+<p><a id="map"></a>To produce alignmentment statistics using bowtie2 first use the following script to build an index</p>
 
 ```
 #!/bin/bash -l
@@ -408,7 +412,7 @@ bowtie2 -p 16 -q \
 samtools view -@16 -Sb \
 -o /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.bam
 ```
-<p>If we want to view the alignments in IGV we can use the following script to create the necessary coordinate sorted bam files and indices.</p>
+<p><a id="igv"></a>If we want to view the alignments in IGV we can use the following script to create the necessary coordinate sorted bam files and indices.</p>
 
 ```
 #!/bin/bash -l
@@ -461,9 +465,9 @@ samtools index /home/nbumpus/lobster/assembly_quality/CG3.bowtie2.coordsort.bam
 samtools index /home/nbumpus/lobster/assembly_quality/CG4.bowtie2.coordsort.bam
 samtools faidx /home/nbumpus/lobster/trinity_out_dir/Trinity.fasta
 ```
-<p>Then use the coordinate sorted bam files, the index files for the bam files, the Trinity.fasta file and the Trinity.fasta files index as inputs in IGV.</p>
+<p>Then use the coordinate sorted bam files, the index files for the bam files, the Trinity.fasta file and the Trinity.fasta files index as inputs in IGV.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
-<h2 align="center">Differential Expression</h2>
+<h2 align="center"><a id="DE"></a>Differential Expression</h2>
 
 <p>To determine which isoforms are differentially expressed we can use edgeR with the following two scripts.</p>
 
@@ -508,15 +512,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 --samples /home/nbumpus/lobster/samples_described.txt \
 --max_genes_clust 18000
 ```
-
-
-
-
-
-
-<h1>Work Being Done Here</h1>
-
-
+<h2 align="center"><a id="table"></a>Table of Contents</h2>
 * [Home](README.md)
 * [Obtaining Data](data.md)
 * [Data Quality](dataqc.md)
@@ -528,3 +524,4 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 * [Results](results.md)
 * [References](references.md)
 
+<a href="#top">back to top</a>
