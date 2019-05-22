@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Scripts Used for Lobster Assembly</h1>
 
-<p>This page contains the scripts to use when working with the lobster data.  Scripts contained on this page may be of use in <a href="#download">downloading data</a> from NCBI, <a href="#separating">separating reads</a> in SRA format into left and right reads, performing <a href="#fastqc">fastqc </a>on the reads, <a href="#trim">trimming reads</a> with trimmomatic, <a href="#assembly">building the assembly</a>, <a href="#abundances">abundance estimation</a>, assesing the <a href="#quality">quality </a>of the assembly, <a href="#map">mapping </a>the reads back to the assembly, viewing the mappings in <a href="#igv">IGV </a> and determining which isoforms are <a href="#DE">differentially expressed</a>.
+<p>This page contains the scripts to use when working with the lobster data.  Scripts contained on this page may be of use in <a href="#download">downloading data</a> from NCBI, <a href="#separating">separating reads</a> in SRA format into left and right reads, performing <a href="#fastqc">fastqc </a>on the reads, <a href="#trim">trimming reads</a> with trimmomatic, <a href="#assembly">building the assembly</a>, <a href="#abundances">abundance estimation</a>, assesing the <a href="#quality">quality </a>of the assembly, <a href="#map">mapping </a>the reads back to the assembly, viewing the mappings in <a href="#igv">IGV </a> and determining which isoforms are <a href="#DE">differentially expressed</a>.</p>
 
 <h2 align="center"><a id="download"></a>Download and Prepare the Raw Reads from NCBI</h2>
 
@@ -32,7 +32,8 @@ module load java
 ./prefetch.2.9.4 -v SRR7156173
 ./prefetch.2.9.4 -v SRR7156172
 ```
-<p><a id="separating"></a>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group.</p> 
+<p><a id="separating"></a>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
+
 ```
 #!/bin/bash -l
 #PBS -q haswell
