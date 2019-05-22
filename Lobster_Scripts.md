@@ -347,6 +347,68 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 
 <h2 align="center">Assembly Quality</h2>
 
+<p>The following script can be used to generate the basic assembly stats including the N50 statistic.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N AssemblyStats
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=02:00:00
+#PBS -o /home/nbumpus/lobster/assembly_quality/assembly_stats.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+
+$TRINITY_HOME/util/TrinityStats.pl \
+/home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta
+```
+<p>To produce alignmentment statistics using bowtie2 first use the following script to build an index</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N Bowtie2-build
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=24:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load Bowtie2/2.3.4.3
+
+bowtie2-build /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta \
+/home/nbumpus/lobster/assembly_quality/lobster_ref
+```
+<p>Next align the reads to the assembly by modifying the following script for each individual set of reads.  We can run each of the scripts in parallel.  Here is an example using the PMN1 replicate.  This will generate the alignment statistics shown <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/results.html#alignment" target="_blank">here.</a></p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N bowtie2-PMN1-dove
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=02:00:00
+#PBS -o doveout.txt
+#PBS -e doveerr.txt
+
+cd #PBS_O_WORKDIR
+
+module load perl
+module load Bowtie2/2.3.4.3
+module load samtools
+
+bowtie2 -p 16 -q \
+--no-unal --dovetail -k 20 -x /home/nbumpus/lobster/assembly_quality/lobster_ref \
+-1 /home/nbumpus/lobster/trinity_reads/left/SRR7156182_1.trim.paired.fastq \
+-2 /home/nbumpus/lobster/trinity_reads/right/SRR7156182_2.trim.paired.fastq \
+2>/home/nbumpus/lobster/assembly_quality/PMN1_dove_align_stats.txt| \
+samtools view -@16 -Sb \
+-o /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.bam
+```
+
 
 
 <h1>Work Being Done Here</h1>
