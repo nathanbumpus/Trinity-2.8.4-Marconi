@@ -408,6 +408,109 @@ bowtie2 -p 16 -q \
 samtools view -@16 -Sb \
 -o /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.bam
 ```
+<p>If we want to view the alignments in IGV we can use the following script to create the necessary coordinate sorted bam files and indices.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N igvprep
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load samtools
+
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/PMN2_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/PMN2_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/PMN3_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/PMN3_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/PMN4_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/PMN4_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/MN1_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/MN1_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/MN2_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/MN2_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/MN3_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/MN3_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/MN4_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/MN4_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG1_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/CG1_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG2_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/CG2_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.coordsort.bam
+samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.bam \
+-o /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN1.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN2.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN3.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN4.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN1.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN2.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN3.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN4.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG1.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG2.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG3.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG4.bowtie2.coordsort.bam
+samtools faidx /home/nbumpus/lobster/trinity_out_dir/Trinity.fasta
+```
+<p>Then use the coordinate sorted bam files, the index files for the bam files, the Trinity.fasta file and the Trinity.fasta files index as inputs in IGV.</p>
+
+<h2 align="center">Differential Expression</h2>
+
+<p>To determine which isoforms are differentially expressed we can use edgeR with the following two scripts.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N lob-DE-iso
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=10:00:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd #PBS_O_WORKDIR
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
+--matrix /home/nbumpus/lobster/abundances/matrix/lobster.isoform.counts.matrix \
+--method edgeR \
+--samples_file /home/nbumpus/lobster/samples_described.txt \
+--output /home/nbumpus/lobster/DifferentialExpression/isoform/
+```
+<p>Second, from with the directory containing the differential expression results (the same directory ast the --output from the previous script) run the following script to obtain subsets of up regulated isoforms and heatmaps.</p>
+
+```
+#!/bin/bash -l
+#PBS -q haswell
+#PBS -N lob-DE-iso-anlys
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:10:00
+#PBS -o out.txt
+#PBS -e err.txt
+
+cd /home/nbumpus/lobster/DifferentialExpression/isoform/
+
+module load trinity/2.8.4
+module load R/3.5.2
+
+$TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
+--matrix /home/nbumpus/lobster/abundances/matrix/lobster.isoform.TMM.EXPR.matrix \
+--samples /home/nbumpus/lobster/samples_described.txt \
+--max_genes_clust 18000
+```
+
+
+
 
 
 
