@@ -32,7 +32,7 @@ module load java
 ./prefetch.2.9.4 -v SRR7156173
 ./prefetch.2.9.4 -v SRR7156172
 ```
-<p><a id="separating"></a>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
+<p><a id="separating"></a>The downloaded reads are in SRA format.  To separate the reads into left and right reads use the following scripts for each group of reads. Your file paths will vary.  The important thing is that the first --outdir argument specifies where to put the resulting left and right raw reads and the --split-files argument defines the path to the downloaded SRA files.  The --defline-seq argument will always be the same when downloading SRA files from NCBI. First for the cardiac ganglion group. <a href="#top">back to top</a> <a href="#table">Table of Contents</a></p>
 
 ```
 #!/bin/bash -l
