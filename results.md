@@ -260,7 +260,7 @@ Stats based on ALL transcript contigs:
 
 <p>By aligning each group of replicates back to the assembly with various parameters it was discovered that a majority of the reads aligned in a dove tail fashion.  The dove tail option was enabled in bowtie2 to allow these alignments to count as concordant alignments to generate the following statistics.</p>
 
-<h4 align="center"><a id="alignment">Pre Motor Neuron Region (PMN)</a></h4>
+<h4 align="center"><a id="alignment"></a>Pre Motor Neuron Region (PMN)</h4>
 
 ```
 PMN1 
