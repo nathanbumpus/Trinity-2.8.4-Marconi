@@ -451,18 +451,18 @@ samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.bam \
 -o /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.coordsort.bam
 samtools sort -@16 /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.bam \
 -o /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/PMN1.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/PMN2.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/PMN3.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/PMN4.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/MN1.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/MN2.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/MN3.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/MN4.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/CG1.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/CG2.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/CG3.bowtie2.coordsort.bam
-samtools index /home/nbumpus/lobster/assembly_quality/CG4.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN1_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN2_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN3_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/PMN4_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN1_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN2_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN3_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/MN4_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG1_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG2_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.coordsort.bam
+samtools index /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.coordsort.bam
 samtools faidx /home/nbumpus/lobster/trinity_out_dir/Trinity.fasta
 ```
 <p>Then use the coordinate sorted bam files, the index files for the bam files, the Trinity.fasta file and the Trinity.fasta files index as inputs in IGV.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
