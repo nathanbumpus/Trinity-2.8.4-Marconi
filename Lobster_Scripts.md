@@ -173,7 +173,7 @@ fastqc -f fastq -o /home/nbumpus/lobster/fastqc_reports/mn/ /home/nbumpus/lobste
 
 <h2 align="center"><a id="trim"></a>Trimmomatic</h2>
 
-<p>Below is one of the trimmoatic scripts used to clean one of the sets of reads.  We can adjust this script for each set of reads and run all of the scripts in parallel.  Here is the script used for one set of the Premotor Neuron reads</p>
+<p>Below is one of the trimmomatic scripts used to clean one of the sets of reads.  We can adjust this script for each set of reads and run all of the scripts in parallel.  Here is the script used for one set of reads from the Premotor Neuron region </p>
 
 ```
 #!/bin/bash -l
@@ -198,11 +198,11 @@ java -jar /opt/modules/universal/trimmomatic/0.36/trimmomatic-0.36.jar PE -phred
 /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156172_2.trim.unpaired.fastq \
 ILLUMINACLIP:/opt/modules/universal/trimmomatic/0.36/adapters/TruSeq2-PE.fa:2:30:10 HEADCROP:9 LEADING:20 TRAILING:20 MINLEN:50
 ```
-<p>Next perform fastqc again only this time using the resulting trimmed reads as inputs.  Once we have determined that reads have been sufficiently trimmed we can use these reads to build the assembly.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
+<p>Next perform fastqc again, only this time using the resulting trimmed reads as inputs.  Once we have determined that the reads have been sufficiently trimmed we can use these trimmed reads to build the assembly.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
 <h2 align="center"><a id="assembly"></a>Lobster Assembly</h2>
 
-<p>Instead of catonating all of the left reads together and all of the right reads together we can create a tab deliminited assembly_samples_file.txt file describing each pair of left and right reads like so.</p>
+<p>Instead of catonating all of the left reads together and all of the right reads together we can create a tab delimited assembly_samples_file.txt file describing each pair of left and right reads like so.</p>
 
 ```
 PMN     PMN2    /home/nbumpus/lobster/trinity_reads/left/SRR7156183_1.trim.paired.fastq /home/nbumpus/lobster/trinity_reads/right/SRR7156183_2.trim.paired.fastq
@@ -265,7 +265,7 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
 --SS_lib_type RF \
 --prep_reference
 ```
-<p>Create a tab delimiited text file describing the sample to replicate relationships along with file paths to the reads.  The file should look similar to this</p>
+<p>Create a tab delimited text file describing the sample to replicate relationships along with file paths to the reads.  The file should look similar to this</p>
 
 ```
 SRR7156183	/home/nbumpus/lobster/abundances/PMN2   /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156183_1.trim.paired.fastq  /home/nbumpus/lobster/trimmed_reads/pmn/SRR7156183_2.trim.paired.fastq
@@ -463,7 +463,7 @@ samtools index /home/nbumpus/lobster/assembly_quality/CG1_dove.bowtie2.coordsort
 samtools index /home/nbumpus/lobster/assembly_quality/CG2_dove.bowtie2.coordsort.bam
 samtools index /home/nbumpus/lobster/assembly_quality/CG3_dove.bowtie2.coordsort.bam
 samtools index /home/nbumpus/lobster/assembly_quality/CG4_dove.bowtie2.coordsort.bam
-samtools faidx /home/nbumpus/lobster/trinity_out_dir/Trinity.fasta
+samtools faidx /home/nbumpus/lobster/trinity_out_dir3/Trinity.fasta
 ```
 <p>Then use the coordinate sorted bam files, the index files for the bam files, the Trinity.fasta file and the Trinity.fasta files index as inputs in IGV.</p> <a href="#top">back to top</a> <a href="#table">Table of Contents</a>
 
@@ -491,7 +491,19 @@ $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl \
 --samples_file /home/nbumpus/lobster/samples_described.txt \
 --output /home/nbumpus/lobster/DifferentialExpression/isoform/
 ```
-<p>Second, from with the directory containing the differential expression results (the same directory as the --output from the previous script) run the following script to obtain subsets of up regulated isoforms and heatmaps.</p>
+<p>The samples_described.txt is a tab delimited file describing the sample to replicate relationships between the comparison groups.  In this case it should look like this.</p>
+
+```
+PMN     PMN2
+PMN     PMN1
+PMN     PMN4
+PMN     PMN3
+MN	MN2
+MN	MN1
+MN	MN4
+MN	MN3
+```
+<p>Next, from within the directory containing the differential expression results (the same directory as the --output from the previous script) run the following script to obtain subsets of up-regulated isoforms and heatmaps.</p>
 
 ```
 #!/bin/bash -l
@@ -512,6 +524,8 @@ $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl \
 --samples /home/nbumpus/lobster/samples_described.txt \
 --max_genes_clust 18000
 ```
+<p>We can modify this script to only look at certain number of differentially expressed isoforms by using the --max_DE_genes_per_comparison argument followed by an integer.</p>
+
 <h2 align="center"><a id="table"></a>Table of Contents</h2>
 * [Home](README.md)
 * [Obtaining Data](data.md)
