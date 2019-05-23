@@ -1,13 +1,13 @@
 <h1 align="center"><a id="top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
-<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.</p>
+<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.  The results of the pipeline's use are shown for the <a href="#yeast">yeast</a> dataset and the <a href="#lobster"></a> dataset.  Results obtained from using the shrimp dataset can be seen throughout the tutorial.</p>
 
-<h2 align="center">Yeast Assembly</h2>
+<h2 align="center"><a id="yeast"></a>Yeast Assembly</h2>
 
-<p>A small set of of RNA seq data used to construct a trinity assembly from samples from four conditions with no replicates.</p>
+<p>A small set of of RNA seq data used to construct a trinity assembly from samples from four conditions with no replicates.  Results are shown for the <a href="#YeastQuality">assembly quality</a>, including the <a href="#YeastN50">N50</a> statistic and the <a href="#YeastEx90N50">Ex90N50</a> statistic, the <a href="#YeastAlign">alignments</a> of the reads back to the assembly, the <a href="#YeastSpecificity">strand specificity</a> determined through the use of violin plots and IGV and the results of the <a href="#YeastDE">differential expression</a> analysis with a summary of the obtained functional annotations.</p>
 
-<h3 align="center">Assembly Quality</h3>
-<p>Below are the basic stats for the yeast Trinity assembly including the N50 statistic</p>
+<h3 align="center"><a id="YeastQuality"></a>Assembly Quality</h3>
+<p><a id="YeastN50"></a>Below are the basic stats for the yeast Trinity assembly including the N50 statistic</p>
 ```
 ################################
 ## Counts of transcripts, etc.
@@ -45,15 +45,19 @@ Stats based on ALL transcript contigs:
         Average contig: 1011.08
         Total assembled bases: 8794382
 ```
-<p>Next the graph depicting the Ex90N50 statistic suggesting that deep enough sequencing was achieved to construct the assembly</p>
+<a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<p><a id="YeastEx90N50"></a>Next the graph depicting the Ex90N50 statistic suggesting that deep enough sequencing was achieved to construct the assembly</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/spEx90N50.25.jpg" alt="Ex90N50"> 
 </p>
 
+<a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
 <h3 align="center">Alignment Statistics</h3>
 
-<p>Below are the alignment rates of the reads from each of the samples to the Trinity assembly</p>
+<p><a id="YeastAlign"></a>Below are the alignment rates of the reads from each of the samples to the Trinity assembly</p>
 
 ```
 ds reads
@@ -124,8 +128,9 @@ plat reads
         6448 (4.88%) aligned >1 times
 94.97% overall alignment rate
 ```
+<a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
 
-<h3 align="center">Strand Specificity</h3>
+<h3 align="center"><a id="YeastSpecificity"></a>Strand Specificity</h3>
 
 <p>Violin plot suggesting that library construction was performed in a strand specific fashion</p>
 
@@ -133,7 +138,9 @@ plat reads
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/spviolinplot.25.jpg" alt="violinplot">
 </p>
 
-<h3 align="center">Differential Expression and Annotations</h3>
+<a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<h3 align="center"><a id="YeastDE"></a>Differential Expression and Annotations</h3>
 
 <p>Below are the MA and volcano plots for visualizing the differentially expressed isoforms between each of the pairwise comparisons and annotation statistics for the obtained differentially expressed isoforms.  The uniprot and trembl databases were used for the annotations.</p>
 
@@ -199,11 +206,11 @@ plat reads
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/spHeatmap50.jpg" alt="Heatmap">
 </p>
 
+<a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
 <h2 align="center">Shrimp Assembly</h2>
 
 <p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
-
-<p><a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a></p>
 
 <h2 align="center">Lobster Assembly</h2>
 
