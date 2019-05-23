@@ -31,9 +31,11 @@ fastqc -f fastq -o /home/nbumpus/shrimp/fastqc_reports/ /home/nbumpus/shrimp/raw
 
 ```
 
-<p>This script along with most of the others that follow it takes advantage of #PBS_O_WORKDIR variable which takes the value of the directory from which the script is called.</p>
+<p>This script along with most of the others that follow it takes advantage of the #PBS_O_WORKDIR variable which takes the value of the directory from which the script is called.</p>
 
-<p>When the script finishes, sftp the html files in the fastqc_reports directory to your hard drive.  Once these files have been reviewed create another directory in the project directory.  Call it something like trimmed_reads.  We are now ready to trim the raw RNA seq reads of contamination such as adaptors to obtain high quality data from which to build an assembly. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+<p>When the script finishes, sftp the html files in the fastqc_reports directory to your hard drive.  Once these files have been reviewed create another directory in the project directory.  Call it something like trimmed_reads.  We are now ready to trim the raw RNA seq reads of contamination such as adaptors to obtain high quality reads from which to build an assembly.</p> 
+
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
 
 <h2 align="center">Running Trimmomatic on Marconi<a id="trim"></a></h2>
 
@@ -109,7 +111,7 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341163_2.trim.paired.fastq | perl -la
 cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -lane 's/_reverse//; print;' > /home/nbumpus/shrimp/trinity_reads/SRR4341164_2.trim.paired.adj.fastq
 
 ```
-<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using Trinity. <a href="#top">back to top</a></p>
+<p>If we go to the trinity_reads directory and use the head command on one of the files the _forward and _reverse should be gone.  Notice we do not have to do this for the lobster data.  We are now ready to build an assembly using Trinity.</p>
 
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
@@ -123,3 +125,4 @@ cat /home/nbumpus/shrimp/trimmed_reads/SRR4341164_2.trim.paired.fastq | perl -la
 * [Results](results.md)
 * [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
+<p><a href="#top">back to top</a></p>
