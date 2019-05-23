@@ -212,7 +212,7 @@ plat reads
 
 <p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
 
-<h2 align="center"><a id="#lobster"></a>Lobster Assembly</h2>
+<h2 align="center"><a id="lobster"></a>Lobster Assembly</h2>
 
 <p>An assembly of the cardiac ganglion region represented by three sets of samples each containing four biological replicates with a combined total of ~250 million reads.  Included are the results describing the <a href="#LobsterQuality">assembly quality</a> including the <a href="#LobsterN50">N50</a> statistic and the <a href="#LobsterEx90N50">Ex90N50</a> statistic, the <a href="#LobsterAlign">alignments</a> of the reads back to the assembly, a <a href="#LobsterRep">comparison of replicates</a>, a <a href="#LobsterPC">principle components</a> analysis and the results of the <a href="#LobsterDE">differential expression</a> analysis and description of the obtained functional annotations.</p>
 
