@@ -64,7 +64,9 @@ Stats based on ALL transcript contigs:
         Total assembled bases: 108874612
 
 ```
-<p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.<a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+<p>If we look at only the longest isoform per gene and line up all of our assembled contigs by decreasing length the N50 is the length of the contig at the at the point of coverage at 50 percent of the length of the total assembly.</p>
+
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
 
 <h2 align="center">Realigning the Reads Back to the Assembly<a id="align"></a></h2>
 
@@ -134,6 +136,8 @@ samtools view -@4 -Sb \
 ```
 <p>This file tells us that ~93% of the reads from this sample aligned concordantly at least one time.  Bowtie2 then took the ~7% of the reads that did not align concordantly and tried to align them discordantly.  Bowtie2 was able to align ~17% of these reads discordantly.  Bowtie2 then attempted to align the remaining unaligned reads to the assembly as singletons and was successful with about 61% of these reads.  This gives an overall alignment rate of ~98%.  The mapping shown is an example of a sucessful alignment showing greater than 70% of the reads aligning concordantly to the assembly and a high overall alignment rate greater than 80%. <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
 
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
+
 <h2 align="center">Determining Strand Specificity<a id="specificity"></a></h2>
 
 <p>Usually a paper will tell you how the cDNA library was constructed and you can deduce strand specificity.  Such is the case with the lobster and yeast papers.  Sometimes, however, this information is not provided in the literature.  In the case of the shrimp paper we are not provided with the method as to how the library was constructed.  There are two things we can do in this scenario.  We can pick a genome of a closely related species and visualize the mappings of the reads back to that genome using IGV.  The other option is to build the assembly in the manner that we think the library was probably constructed, examine the specificity violin plots and then use IGV to visualize the mappings to the assembly.  Since we have already constructed an assembly for the shrimp data let's pursue the second option.  First run the following trinity script.</p>
@@ -188,6 +192,8 @@ $TRINITY_HOME/util/misc/examine_strand_specificity.pl \
 
 <p>The plot shows that as we approach the 100% of the total reads the median diff_ratio is right around 0.0 with a high distribution of the reads centered around that median.  This suggests that the library is non-strand specific.  We can now use IGV to back up the assertion that the data is non-strand specific.</p>
 
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
+
 <h2 align="center">Determining Strand Specificity With IGV</h2>
 
 <p>We can use IGV to visualize how each set of reads is mapping back to our assembly to help determine strand specificity.  Begin by running the following script.</p>
@@ -226,6 +232,8 @@ samtools faidx /home/nbumpus/shrimp/trinity_out_dir/Trinity.fasta
 </p>
 
 <p>If this were a strand specific library the reads would be all or mostly the same color.  This supports the assertion that the data is non-strand specific and we constructed the assembly with the correct parameters.<a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
 
 <h2 align="center">Evaluating the Quality of Transcripts<a id="blast"></a></h2>
 
@@ -310,7 +318,9 @@ $TRINITY_HOME/util/analyze_blastPlus_topHit_coverage.pl \
 10	171     9945
 ```
 
-<p>We can see that there are 3521 proteins in the database that are almost completely covered by an assembly transcript by looking at the second column (between 90 and 100 percent coverage). <a href="#top">back to top </a><a href="#contents">table of contents</a></p>
+<p>We can see that there are 3521 proteins in the database that are almost completely covered by an assembly transcript by looking at the second column (between 90 and 100 percent coverage).</p>
+
+<a href="#top">back to top </a><a href="#contents">table of contents</a>
 
 <h2 align="center">Evaluating the Ex90N50 Statistic<a id="Ex90N50"></a></h2>
 
@@ -361,7 +371,7 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/ExN50.25.jpg" alt="ExN50 plot"> 
 </p>
 
-<P>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A fragmented assembly in need of deeper sequencing would look more like a foothill with no distinct peak at 90%. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/DE.html">Differential Expression.</a>  <a href="#top">back to top</a></p>
+<p>The graph shows a nice sharp peak right around 90% suggesting that sequencing was performed at a sufficient depth to create a high quality assembly.  A fragmented assembly in need of deeper sequencing would look more like a foothill with no distinct peak at 90%. Taking into account each of the metrics laid out on this page it appears that the shrimp data is suitable for further analysis.  We can now move on to determining Differential Expression.</p>
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
@@ -374,4 +384,5 @@ xpdf /home/nbumpus/shrimp/assembly_quality/ExN50.30.stats.plot.pdf
 * [Results](results.md)
 * [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
+<p><a href="#top">back to top </a></p>
 
