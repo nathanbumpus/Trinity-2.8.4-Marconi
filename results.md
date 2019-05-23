@@ -560,7 +560,7 @@ CG4
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/lobHeatTop75.jpg" alt="Heatmap">
 </p>
 
-<a href="#lobster">beginning of lobster analysis</a>
+
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
@@ -573,4 +573,4 @@ CG4
 * [Annotations](annotations.md)
 * [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
-<p><a href="#top">Back to Top</a></p>
+<p><a href="#top">Back to Top</a> <a href="#lobster">beginning of lobster analysis</a></p>
