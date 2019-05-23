@@ -1,6 +1,6 @@
-<h1 align="center">Estimating Transcript Abundance with Trinity<a id="top"></a></h1>
+<h1 align="center">Estimating Transcript Abundances with Trinity<a id="top"></a></h1>
 
-<p>When estinmating transcript abundance with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundances.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1" target="_blank">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
+<p>When estinmating transcript abundances with Trinity on Marconi we need to choose whether to use an alignment based or a non-alignment based approach.  Trinity has a script align_and_estimate_abundance.pl which has support for the RSEM and Salmon modules on Marconi.  In this project I used Salmon as a non-alignment based method to estimate transcript abundances.  A comparison of methods including Salmon and RSEM can be found here.  <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4002-1" target="_blank">RNA Seq Computational Tools</a>  Go into the shrimp project directory and make a new directory called abundances.  Inside the abundances directory make another directory called matrix.  We will use this matrix directory immediately after estimating our abundances.</p>
 
 <h2 align="center">Non-Alignment Based Abundance Estimation with Salmon</h2>
 
@@ -103,7 +103,7 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 --out_prefix /home/nbumpus/shrimp/abundances/matrix/shrimp \
 --quant_files /home/nbumpus/shrimp/quant_files.txt
 ```
-<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at overall quality of the assemblies in the next section. <a href="https://nathanbumpus.github.io/Trinity-2.8.4-Marconi/assemblyqc.html">Assembly Qualilty</a> <a href="#top">back to top</a></p>
+<p>Once the abundance estimates are calculated and the matrices have been built we can begin to look at the overall quality of the assemblies in the next section.</p>
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
@@ -116,4 +116,4 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl \
 * [Results](results.md)
 * [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
-
+<p><a href="#top">back to top</a></p>
