@@ -135,8 +135,6 @@ Mems_allowed_list:	0-1
 voluntary_ctxt_switches:	31111
 nonvoluntary_ctxt_switches:	1969
 ```
-<p><a href="#top">back to top</a></p>
-
 
 <h2 align="center">Table of Contents</h2>
 * [Home](README.md)
