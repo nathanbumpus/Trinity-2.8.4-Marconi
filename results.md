@@ -1,10 +1,10 @@
 <h1 align="center"><a id="top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
-<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.  The results of the pipeline's use are shown for the <a href="#yeast">yeast</a> dataset and the <a href="#lobster">lobster</a> dataset.  Results obtained from using the shrimp dataset can be seen throughout the tutorial.</p>
+<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.  The results of the pipeline's use are shown for the <a href="#yeast">yeast</a> dataset and the <a href="#lobster">lobster</a> dataset.  Results obtained from using the shrimp dataset can be seen throughout the tutorial but annotation results for the shrimp are included <a href="#annotations">here</a>.</p>
 
 <h2 align="center"><a id="yeast"></a>Yeast Assembly</h2>
 
-<p>A small set of of RNA seq data used to construct a trinity assembly from samples from four conditions with no replicates.  Results are shown for the <a href="#YeastQuality">assembly quality</a>, including the <a href="#YeastN50">N50</a> statistic and the <a href="#YeastEx90N50">Ex90N50</a> statistic, the <a href="#YeastAlign">alignments</a> of the reads back to the assembly, the <a href="#YeastSpecificity">strand specificity</a> determined through the use of violin plots and IGV and the results of the <a href="#YeastDE">differential expression</a> analysis with a summary of the obtained functional annotations.</p>
+<p>A small set of of RNA seq data used to construct a Trinity assembly from samples from four conditions with no replicates.  Results are shown for the <a href="#YeastQuality">assembly quality</a>, including the <a href="#YeastN50">N50</a> statistic and the <a href="#YeastEx90N50">Ex90N50</a> statistic, the <a href="#YeastAlign">alignments</a> of the reads back to the assembly, the <a href="#YeastSpecificity">strand specificity</a> determined through the use of violin plots and IGV and the results of the <a href="#YeastDE">differential expression</a> analysis with a summary of the obtained functional annotations.</p>
 
 <h3 align="center"><a id="YeastQuality"></a>Assembly Quality</h3>
 <p><a id="YeastN50"></a>Below are the basic stats for the yeast Trinity assembly including the N50 statistic</p>
@@ -208,9 +208,9 @@ plat reads
 
 <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
 
-<h2 align="center">Shrimp Assembly</h2>
+<h2 align="center"><a id="annotations"></a>Shrimp Assembly</h2>
 
-<p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
+<p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI database was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
 
 <h2 align="center"><a id="lobster"></a>Lobster Assembly</h2>
 
