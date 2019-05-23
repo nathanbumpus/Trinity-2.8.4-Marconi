@@ -2,7 +2,7 @@
 
 <h2 align="center">Comparison of Replicates</h2>
 
-<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  Note that here we have to decide whether we want to determine differential expression at the isoform or gene level.  To demonstrate I will determine differential expression at the isoform level but all of the scripts can be repeated at the gene level using the appropriate files as well.  First we need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
+<p>If our data contains replicates such as with the shrimp data we should first compare the replicates before caculating differential expression.  First, in the shrimp project directory make a new directory called DifferentialExpression.  Note that here we have to decide whether we want to determine differential expression at the isoform or gene level.  To demonstrate I will determine differential expression at the isoform level but all of the scripts can be repeated at the gene level using the appropriate files as well.  First we need to make a tab delimited file describing the sample to replicate relationships.  Since we only have four samples, use nano to create a samples_described.txt file in the shrimp project directory like this.</p>
 
 
 ```
@@ -35,7 +35,7 @@ $TRINITY_HOME/Analysis/DifferentialExpression/PtR \
 --min_rowSums 10 \
 --compare_replicates
 ```
-<p>This will produce pdf's of a histogram of counts per replicate, scatter plots for each replicate, MA plots for each replicate and a heatmap.  Shown below are the counts histogram, scatter plots and MA plots for the larvae replicates.  The plots should be simmilar for the adult replicates.</p>
+<p>This will produce pdf's of a histogram of counts per replicate, scatter plots for each replicate, MA plots for each replicate and a heatmap.  Shown below are the counts histogram, scatter plots and MA plots for the larvae replicates.  The plots should be similar for the adult replicates.</p>
 
 <p>
   <img src="https://github.com/nathanbumpus/Trinity-2.8.4-Marconi/raw/master/images/larvae_counts50.mod.jpg" alt="larvae counts">
