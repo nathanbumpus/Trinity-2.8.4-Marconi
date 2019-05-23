@@ -59,4 +59,4 @@ module load java
 * [Results](results.md)
 * [Scripts for Lobster Assembly](Lobster_Scripts.md)
 * [References](references.md)
-<a href="#top">back to top</a>
+<p><a href="#top">back to top</a></p>
