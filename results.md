@@ -212,13 +212,13 @@ plat reads
 
 <p>Since most of the results for the shrimp data are shown in the building of the assembly I will not repost them here.  However, a third database was used to try to recover more functional annotations for the differentially expressed isoforms.  The non redundant NCBI data was used for this purpose. Using the uniprot, trembl and nr databases functional annotations were obtained for 9411 of the 16836 differenially expressed isoforms.</p>
 
-<h2 align="center">Lobster Assembly</h2>
+<h2 align="center"><a id="#lobster"></a>Lobster Assembly</h2>
 
-<p>An assembly of the cardiac ganglion region represented by three sets of samples each containing four biological replicates with a combined total of ~250 million reads.</p>
+<p>An assembly of the cardiac ganglion region represented by three sets of samples each containing four biological replicates with a combined total of ~250 million reads.  Included are the results describing the <a href="#LobsterQuality">assembly quality</a> including the <a href="#LobsterN50">N50</a> statistic and the <a href="#LobsterEx90N50">Ex90N50</a> statistic, the <a href="#LobsterAlign">alignments</a> of the reads back to the assembly, a <a href="#LobsterRep">comparison of replicates</a>, a <a href="#LobsterPC">principle components</a> analysis and the results of the <a href="#LobsterDE">differential expression</a> analysis and description of the obtained functional annotations.</p>
 
-<h3 align="center">Assembly Quality</h3>
+<h3 align="center"><a id="LobsterQuality"></a>Assembly Quality</h3>
 
-<p>Below are the basic trinity assembly statistics including the N50 statistic.</p>
+<p><a id="LobsterN50"></a>Below are the basic trinity assembly statistics including the N50 statistic.</p>
 
 ```
 ################################
@@ -257,17 +257,21 @@ Stats based on ALL transcript contigs:
         Average contig: 943.69
         Total assembled bases: 117389051
 ```
-<p>Next a graph of the Ex90N50 statistic which suggests adequate sequencing depth for the assembly</p>
+<a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<p><a id="LobsterEx90N5"></a>Next a graph of the Ex90N50 statistic which suggests adequate sequencing depth for the assembly</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/lobsterEx90N50.jpg" alt="Ex90N50">
 </p>
 
-<h3 align="center">Alignment Statistics</h3>
+<a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<h3 align="center"><a id="LobsterAlign"></a>Alignment Statistics</h3>
 
 <p>By aligning each group of replicates back to the assembly with various parameters it was discovered that a majority of the reads aligned in a dove tail fashion.  The dove tail option was enabled in bowtie2 to allow these alignments to count as concordant alignments to generate the following statistics.</p>
 
-<h4 align="center"><a id="alignment"></a>Pre Motor Neuron Region (PMN)</h4>
+<h4 align="center">Pre Motor Neuron Region (PMN)</h4>
 
 ```
 PMN1 
@@ -482,7 +486,9 @@ CG4
 94.22% overall alignment rate
 ```
 
-<h3 align="center">Comparison of Replicates and Principle Components</h3>
+<a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<h3 align="center"><a id="LobsterRep"></a>Comparison of Replicates and Principle Components</h3>
 
 <h4 align="center">PMN Replicate Comparisons</h4>
 
@@ -521,13 +527,17 @@ CG4
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/CGMA75.jpg" alt="MAplot">
 </p>
 
-<h4 align="center">Priniciple Component Analysis</h4>
+<a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<h4 align="center"><a id="LobsterPC"></a>Priniciple Component Analysis</h4>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/lobsterpc50.jpg" alt="PC">
 </p>
 
-<h3 align="center">Differential Expression Between the PMN and MN Regions of the CG Assembly</h3>
+<a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
+
+<h3 align="center"><a id="LobsterDE"></a>Differential Expression Between the PMN and MN Regions of the CG Assembly</h3>
 
 <h4 align="center">MA and Volcano Plots</h4>
 
@@ -549,6 +559,8 @@ CG4
 <p align="center">
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/lobHeatTop75.jpg" alt="Heatmap">
 </p>
+
+<a href="#lobster">beginning of lobster analysis</a>
 
 <h2 align="center">Table of Contents<a id="contents"></a></h2>
 * [Home](README.md)
