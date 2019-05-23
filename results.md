@@ -1,6 +1,6 @@
 <h1 align="center"><a id="top"></a>Results for the Yeast, Shrimp and Lobster Assemblies</h1>
 
-<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.  The results of the pipeline's use are shown for the <a href="#yeast">yeast</a> dataset and the <a href="#lobster"></a> dataset.  Results obtained from using the shrimp dataset can be seen throughout the tutorial.</p>
+<p>Below are the results generated from the proposed Trinity pipeline on Marcroni for each of the three assemblies.  The results of the pipeline's use are shown for the <a href="#yeast">yeast</a> dataset and the <a href="#lobster">lobster</a> dataset.  Results obtained from using the shrimp dataset can be seen throughout the tutorial.</p>
 
 <h2 align="center"><a id="yeast"></a>Yeast Assembly</h2>
 
@@ -259,7 +259,7 @@ Stats based on ALL transcript contigs:
 ```
 <a href="#lobster">beginning of lobster analysis</a> <a href="#top">Back to Top</a> <a href="#contents">Table of Contents</a>
 
-<p><a id="LobsterEx90N5"></a>Next a graph of the Ex90N50 statistic which suggests adequate sequencing depth for the assembly</p>
+<p><a id="LobsterEx90N50"></a>Next a graph of the Ex90N50 statistic which suggests adequate sequencing depth for the assembly</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/nathanbumpus/Trinity-2.8.4-Marconi/master/images/lobsterEx90N50.jpg" alt="Ex90N50">
