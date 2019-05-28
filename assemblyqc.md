@@ -113,7 +113,7 @@ bowtie2 -p 4 -q \
 samtools view -@4 -Sb \
 -o /home/nbumpus/shrimp/assembly_quality/SRR4341161.bowtie2.bam
 ```
-<p>This script tell Bowtie2 to use 4 threads and when aligning the fastq files (-q), then suppress SAM records for all unaligned reads and to report up to 20 alignments per read.  The results are written to an align_stats.txt file and piped to samtools to create a bam file.  The thread count from Bowtie2 is also piped to samtools and should be equal to the ppn in the Torque settings.  We then specify that the output file should be .bam.</p>
+<p>This script tells Bowtie2 to use 4 threads and when aligning the fastq files (-q), then suppress SAM records for all unaligned reads and to report up to 20 alignments per read.  The results are written to an align_stats.txt file and piped to samtools to create a bam file.  The thread count from Bowtie2 is also piped to samtools and should be equal to the ppn in the Torque settings.  We then specify that the output file should be .bam.</p>
 
 <p>If we open the align_stats.txt file we will see something like this.</p>
 
